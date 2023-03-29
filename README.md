@@ -5,3 +5,5 @@
 ## Componenti
 - ```Ale110901```: Alessandro Cecchetto - 1941039
 - ```Hackfront-ITA```: Emanuele Roccia - 1967318
+
+:snowman:
