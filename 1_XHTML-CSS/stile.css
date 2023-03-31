@@ -2,8 +2,38 @@ body {
   font-family: 'Segoe UI';
   width: 80%;
   margin-left: 10%;
+  font-size: 1.25em;
 }
 
 h1, h2 {
-    text-align: center;
+  text-align: center;
+}
+
+.center {
+  text-align: center;
+}
+
+
+#menu {
+  margin-left: 15%;
+  margin-right: 15%;
+  width: 70%;
+  margin-bottom: 1.2em;
+}
+
+#menu > tbody > tr > td {
+  width: 25%;
+  text-align: center;
+}
+
+#menu > tbody > tr > td > a {
+  text-decoration: none;
+  background-color: #e04336;
+  color: white;
+  padding: 7px 18px;
+  border-radius: 6px;
+}
+
+#menu > tbody > tr > td > a:hover {
+  background-color: red;
 }
