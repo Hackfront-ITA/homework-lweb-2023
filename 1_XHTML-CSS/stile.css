@@ -1,3 +1,9 @@
-h1 {
+body {
+  font-family: 'Segoe UI';
+  width: 80%;
+  margin-left: 10%;
+}
+
+h1, h2 {
     text-align: center;
 }
