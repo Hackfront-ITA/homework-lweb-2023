@@ -37,3 +37,7 @@ h1, h2 {
 #menu > tbody > tr > td > a:hover {
   background-color: red;
 }
+
+#menu-corsi {
+  text-align: center;
+}
