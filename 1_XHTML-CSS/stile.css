@@ -93,3 +93,8 @@ h1 > a{
   border-color: red;
   border-radius: 6px;
 }
+
+.outline-font {
+  -webkit-text-stroke: 1.2px red;
+  -webkit-text-fill-color: white;
+}
