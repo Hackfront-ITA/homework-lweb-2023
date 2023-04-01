@@ -9,6 +9,11 @@ h1, h2 {
   text-align: center;
 }
 
+h1 > a{
+  text-decoration: none;
+  color: black;
+}
+
 .center {
   text-align: center;
 }
@@ -38,6 +43,21 @@ h1, h2 {
   background-color: red;
 }
 
-#menu-corsi {
+#menu-corsi { 
   text-align: center;
 }
+
+#footer-contatti {
+  position: absolute;
+  font-size: small;
+  bottom: 0;
+
+}
+
+#footer-position {
+  position: absolute;
+  font-size: small;
+  margin-left: 35%;
+  bottom: 0;
+}
+
