@@ -3,6 +3,7 @@ body {
   width: 80%;
   margin-left: 10%;
   font-size: 1.25em;
+  background-color: #ffffff;
 }
 
 h1, h2 {
@@ -14,8 +15,12 @@ h1 > a{
   color: black;
 }
 
-.center {
+.centrato {
   text-align: center;
+}
+
+.giustificato {
+  text-align: justify;
 }
 
 
@@ -43,7 +48,8 @@ h1 > a{
   background-color: red;
 }
 
-#menu-corsi { 
+
+#menu-corsi {
   text-align: center;
 }
 
@@ -51,7 +57,6 @@ h1 > a{
   position: absolute;
   font-size: small;
   bottom: 0;
-
 }
 
 #footer-position {
@@ -61,3 +66,30 @@ h1 > a{
   bottom: 0;
 }
 
+
+.contenitore {
+  display: flex;
+  padding-top: 32px;
+  padding-bottom: 32px;
+}
+
+.contenitore > div {
+  width: 50%;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.contenitore > div > img {
+  height: 400px;
+}
+
+.pb-16 {
+  padding-bottom: 16px;
+}
+
+.scatola {
+  border-width: 6px;
+  border-style: ridge;
+  border-color: red;
+  border-radius: 6px;
+}
