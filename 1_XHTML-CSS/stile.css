@@ -23,6 +23,11 @@ h1 > a{
   text-align: justify;
 }
 
+#hr-header {
+    border-top: 4px solid #e64646;
+    border-radius: 5px;
+}
+
 
 #menu {
   margin-left: 15%;
@@ -53,19 +58,15 @@ h1 > a{
   text-align: center;
 }
 
-#footer-contatti {
-  position: absolute;
+#footer {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  color: black;
+  text-align: center;
   font-size: small;
-  bottom: 0;
 }
-
-#footer-position {
-  position: absolute;
-  font-size: small;
-  margin-left: 35%;
-  bottom: 0;
-}
-
 
 .contenitore {
   display: flex;
