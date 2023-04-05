@@ -1,7 +1,9 @@
+* {
+  margin: 0px;
+}
+
 body {
   font-family: 'Segoe UI';
-  width: 80%;
-  margin-left: 10%;
   font-size: 1.25em;
   background-color: #ffffff;
 }
@@ -10,7 +12,7 @@ h1, h2 {
   text-align: center;
 }
 
-h1 > a{
+h1 > a {
   text-decoration: none;
   color: black;
 }
@@ -21,51 +23,6 @@ h1 > a{
 
 .giustificato {
   text-align: justify;
-}
-
-#hr-header {
-    border-top: 4px solid #e64646;
-    border-radius: 5px;
-}
-
-
-#menu {
-  margin-left: 15%;
-  margin-right: 15%;
-  width: 70%;
-  margin-bottom: 1.2em;
-}
-
-#menu > tbody > tr > td {
-  width: 25%;
-  text-align: center;
-}
-
-#menu > tbody > tr > td > a {
-  text-decoration: none;
-  background-color: #e04336;
-  color: white;
-  padding: 7px 18px;
-  border-radius: 6px;
-}
-
-#menu > tbody > tr > td > a:hover {
-  background-color: red;
-}
-
-
-#menu-corsi {
-  text-align: center;
-}
-
-#footer {
-  position: relative;
-  top: 0;
-  left: 0;
-  width: 100%;
-  color: black;
-  text-align: center;
-  font-size: small;
 }
 
 .contenitore {
@@ -98,4 +55,83 @@ h1 > a{
 .outline-font {
   -webkit-text-stroke: 1.2px red;
   -webkit-text-fill-color: white;
+}
+
+
+#header {
+  background-color: #e04336;
+}
+
+#header > h1 {
+  padding: 0.75em;
+}
+
+#header > h1 > a {
+  color: white;
+}
+
+#header > hr {
+  border-top: 4px solid #e64646;
+  border-radius: 5px;
+}
+
+
+#menu {
+  margin-left: 15%;
+  margin-right: 15%;
+  margin-bottom: 1.2em;
+  width: 70%;
+}
+
+#menu > tbody > tr > td {
+  width: 20%;
+  text-align: center;
+}
+
+#menu > tbody > tr > td > a {
+  text-decoration: none;
+  /*
+  background-color: #e04336;
+  background-color: red;
+  */
+  color: white;
+  padding: 7px 18px;
+  border-radius: 6px;
+  font-size: 1.25em;
+  border: 2px;
+}
+
+#menu > tbody > tr > td > a:hover {
+  border-style: solid;
+}
+
+#contenuto {
+  background-color: #f0d3d6;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  padding-left: 10%;
+  padding-right: 10%;
+  width: 80%;
+}
+
+#menu-corsi {
+  text-align: center;
+}
+
+#hp-bg {
+  background-image: url(https://www.palafitnesslatina.it/wp-content/uploads/2022/10/homepage-sfondo.webp);
+}
+
+#footer {
+  padding-top: 1em;
+  padding-bottom: 1em;
+
+  background-color: #e04336;
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  color: white;
+  text-align: center;
+  font-size: small;
 }
