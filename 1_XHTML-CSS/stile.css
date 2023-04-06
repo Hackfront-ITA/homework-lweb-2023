@@ -17,8 +17,21 @@ h1 > a {
   color: black;
 }
 
+div > h2 {
+  font-family: 'Baloo Bhaijaan 2', cursive;
+  color: white;
+  padding-bottom: 1em;
+  padding-top: 1em; 
+}
+
 div > h3 {
   padding-bottom: 1em;
+}
+
+div > button {
+  margin-top: 2em;
+  margin-left: 50%;
+  margin-right: 50%;
 }
 
 .centrato {
@@ -61,7 +74,6 @@ div > h3 {
   -webkit-text-fill-color: white;
 }
 
-
 #header {
   background-color: #e04336;
 }
@@ -73,17 +85,15 @@ div > h3 {
 #header > h1 > a {
   color: white;
   /*font-family: 'Nabla', cursive;  PROVA FONT 1*/
-  /*font-family: 'Covered By Your Grace', cursive;  PROVA FONT 2*/
-  /*font-family: 'Rampart One', cursive; PROVA FONT 3*/
-  font-family: 'Nosifer', cursive; /*PROVA FONT 4*/
-
+  /* font-family: 'Covered By Your Grace', cursive;  PROVA FONT 2*/
+    font-family: 'Rampart One', cursive; /* PROVA FONT 3*/
+  /*font-family: 'Nosifer', cursive; /*PROVA FONT 4*/
 }
 
 #header > hr {
   border-top: 4px solid #e64646;
   border-radius: 5px;
 }
-
 
 #menu {
   margin-left: 15%;
@@ -123,8 +133,8 @@ div > h3 {
   width: 80%;
 }
 
-#bg-img {
-  background-image: url(https://www.palafitnesslatina.it/wp-content/uploads/2022/10/homepage-sfondo.webp); /* SISTEMARE */
+#hp-bg {
+  background-image: url("res/homepage-sfondo.webp"); /* SISTEMARE */
 }
 
 #menu-corsi {
