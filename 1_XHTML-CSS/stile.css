@@ -8,6 +8,18 @@ body {
   background-color: #ffffff;
 }
 
+h1 {
+  font-size: 2.25em;
+}
+
+h2 {
+  font-size: 1.75em;
+}
+
+h3 {
+  font-size: 1.5em;
+}
+
 h1, h2 {
   text-align: center;
 }
@@ -20,8 +32,12 @@ h1 > a {
 div > h2 {
   font-family: 'Baloo Bhaijaan 2', cursive;
   color: white;
+  padding-top: 1em;
   padding-bottom: 1em;
-  padding-top: 1em; 
+}
+
+button {
+  font-size: 0.85em;
 }
 
 .centrato {
@@ -57,7 +73,6 @@ div > h2 {
   margin-top: 2em;
 }
 
-
 .pb-16 {
   padding-bottom: 16px;
 }
@@ -73,6 +88,7 @@ div > h2 {
   -webkit-text-stroke: 1.2px red;
   -webkit-text-fill-color: white;
 }
+
 
 #header {
   background-color: #e04336;
@@ -96,6 +112,7 @@ div > h2 {
   border-top: 4px solid #e64646;
   border-radius: 5px;
 }
+
 
 #menu {
   margin-left: 15%;
@@ -125,6 +142,7 @@ div > h2 {
 #menu > tbody > tr > td > a:hover {
   border-style: solid;
 }
+
 
 #contenuto {
   background-color: #f0d3d6;
