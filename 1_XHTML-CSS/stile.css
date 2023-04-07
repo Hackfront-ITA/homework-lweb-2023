@@ -153,6 +153,10 @@ button {
   width: 80%;
 }
 
+#contenuto > h2 {
+  color: #e04336;
+}
+
 #hp-bg {
   background-image: url("res/homepage-sfondo.png"); /* SISTEMARE */
   min-height: 50%;
