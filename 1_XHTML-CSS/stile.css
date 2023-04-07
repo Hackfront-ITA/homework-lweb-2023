@@ -90,6 +90,31 @@ button {
 }
 
 
+.grid-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 5.5em;
+  padding-top: 3.5em;
+  margin-left: 15%;
+  margin-right: 15%;
+  width: 70%;
+}
+
+.grid-info > div {
+  text-align: center;
+  align-content: center;
+}
+
+.grid-info > div > table, th, td {
+  text-align: center;
+  border: 0.50px groove black;
+  width: max-content; /*ingrandire la tabella...*/
+}
+
+
+
 #header {
   background-color: #e04336;
 }
