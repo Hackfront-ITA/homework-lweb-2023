@@ -24,16 +24,6 @@ div > h2 {
   padding-top: 1em; 
 }
 
-div > h3 {
-  padding-bottom: 1em;
-}
-
-div > button {
-  margin-top: 2em;
-  margin-left: 50%;
-  margin-right: 50%;
-}
-
 .centrato {
   text-align: center;
 }
@@ -44,6 +34,7 @@ div > button {
 
 .contenitore {
   display: flex;
+  justify-content: center;
   padding-top: 32px;
   padding-bottom: 32px;
 }
@@ -54,9 +45,18 @@ div > button {
   margin-right: 10%;
 }
 
+.contenitore > div > h3 {
+  padding-bottom: 1em;
+}
+
 .contenitore > div > img {
   height: 400px;
 }
+
+.contenitore > div > p > button { /*SISTEMARE*/
+  margin-top: 2em;
+}
+
 
 .pb-16 {
   padding-bottom: 16px;
@@ -86,7 +86,7 @@ div > button {
   color: white;
   /*font-family: 'Nabla', cursive;  PROVA FONT 1*/
   /* font-family: 'Covered By Your Grace', cursive;  PROVA FONT 2*/
-    font-family: 'Rampart One', cursive; /* PROVA FONT 3*/
+  font-family: 'Rampart One', cursive; /* PROVA FONT 3*/
   /*font-family: 'Nosifer', cursive; /*PROVA FONT 4*/
 }
 
