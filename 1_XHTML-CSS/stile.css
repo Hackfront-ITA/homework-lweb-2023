@@ -136,7 +136,13 @@ div > h2 {
 }
 
 #hp-bg {
-  background-image: url("res/homepage-sfondo.webp"); /* SISTEMARE */
+  background-image: url("res/homepage-sfondo.png"); /* SISTEMARE */
+  min-height: 50%;
+}
+
+#hp-bg > h2 {
+  padding-top: 20%;
+  padding-bottom: 20%;
 }
 
 #menu-corsi {
