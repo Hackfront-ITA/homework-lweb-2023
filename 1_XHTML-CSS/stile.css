@@ -94,6 +94,10 @@ button:hover {
   padding-bottom: 16px;
 }
 
+.pb-32 {
+  padding-bottom: 32px;
+}
+
 .scatola {
   border-width: 6px;
   border-style: ridge;
@@ -228,4 +232,23 @@ button:hover {
   color: white;
   text-align: center;
   font-size: small;
+}
+
+#galleria {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+#galleria > div {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#galleria > div > div > img {
+  width: 100%;
+  border-radius: 5px;
+  height: 100%;
+  object-fit: cover;
 }
