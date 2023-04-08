@@ -207,14 +207,24 @@ button:hover {
   color: #e04336;
 }
 
-#hp-bg {
+#homepage {
   background-image: url("res/homepage-sfondo.png"); /* SISTEMARE */
+  background-size: 100% auto;
   min-height: 50%;
 }
 
-#hp-bg > h2 {
-  padding-top: 20%;
-  padding-bottom: 20%;
+#homepage {
+  padding-top: 15%;
+  padding-bottom: 15%;
+}
+
+#homepage > h1, #homepage > h2 {
+  color: white;
+  font-family: 'Baloo Bhaijaan 2', cursive;
+}
+
+#homepage button {
+  font-size: 1.25em;
 }
 
 #menu-corsi {
