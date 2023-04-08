@@ -124,7 +124,13 @@ button:hover {
   align-content: center;
 }
 
+#tabella-orari {
+  border-collapse: collapse;
+}
+
 #tabella-orari th, #tabella-orari td {
+  border: 1px solid #e04336;
+  padding: 0.1em 1em;
   text-align: center;
   width: max-content; /*ingrandire la tabella...*/
 }
