@@ -80,7 +80,7 @@ button {
 .scatola {
   border-width: 6px;
   border-style: ridge;
-  border-color: red;
+  border-color: #e04336;
   border-radius: 6px;
 }
 
@@ -90,7 +90,7 @@ button {
 }
 
 
-.grid-info {
+#griglia-info {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -102,17 +102,15 @@ button {
   width: 70%;
 }
 
-.grid-info > div {
+#griglia-info > div {
   text-align: center;
   align-content: center;
 }
 
-.grid-info > div > table, th, td {
+#tabella-orari th, #tabella-orari td {
   text-align: center;
-  border: 0.50px groove black;
   width: max-content; /*ingrandire la tabella...*/
 }
-
 
 
 #header {
