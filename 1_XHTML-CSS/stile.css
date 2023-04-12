@@ -29,7 +29,7 @@ h1 > a {
   text-decoration: none;
 }
 
-div > h2 {
+#homepage > h2, #contenuto > h2 {
   color: white;
   font-family: 'Baloo Bhaijaan 2', cursive;
   padding-bottom: 1em;
@@ -209,7 +209,7 @@ div > h2 {
   color: #e04336;
 }
 
-#contenuto > ul > li {
+#lista-servizi > li {
   list-style-type: "\1F3CB";
   padding: 0.2em 0.5em;
 }
