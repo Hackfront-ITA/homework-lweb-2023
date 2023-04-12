@@ -217,19 +217,10 @@ div > h2 {
 #homepage {
   background-image: url("res/homepage-sfondo.png");
   background-size: 100% auto;
-  opacity: 0.9;
   min-height: 50%;
-}
-
-#homepage {
-  padding-top: 15%;
+  opacity: 0.9;
   padding-bottom: 15%;
-}
-
-#homepage > h2 {
-  color: white;
-  font-family: 'Baloo Bhaijaan 2', cursive;
-  text-shadow: 2px 1px 2px red;
+  padding-top: 15%;
 }
 
 #homepage > h1 {
@@ -239,12 +230,10 @@ div > h2 {
   text-shadow: 5px 2px 5px red;
 }
 
-#homepage button {
-  font-size: 1.25em;
-}
-
-#menu-corsi {
-  text-align: center;
+#homepage > h2 {
+  color: white;
+  font-family: 'Baloo Bhaijaan 2', cursive;
+  text-shadow: 2px 1px 2px red;
 }
 
 #footer {
