@@ -8,4 +8,9 @@
 - ```Hackfront-ITA```: Emanuele Roccia - 1967318
   - link: https://github.com/Hackfront-ITA/linguaggi-web-2023.git
 
+## Descrizione
+
+### Homework 1 - XHTML e CSS
+Descrizione dell'homework 1
+
 :snowman:
