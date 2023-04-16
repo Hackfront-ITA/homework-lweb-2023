@@ -57,6 +57,27 @@
         </div>
       </div>
     </div>
+    
+    <?php
+      $cartella_immagini = 'res';
+      $rdi = new RecursiveDirectoryIterator ( $cartella_immagini );
+      $rii = new RecursiveIteratorIterator ( $rdi );
+      foreach ($rii as $file){
+        if($file -> isDir()){
+          continue;
+        }
+        if ( ! in_array( mime_content_type( $file->getPathname() ), array(
+          'png' => 'image/png',
+          'jpe' => 'image/jpeg',
+          'jpeg' => 'image/jpeg',
+          'jpg' => 'image/jpeg',
+          'gif' => 'image/gif',
+        ) ) ) { 
+          continue; 
+        }
+        echo '<p>' . $file->getFilename() . '</p>';
+      }
+    ?>
   </div>
 
   <div id="footer">
