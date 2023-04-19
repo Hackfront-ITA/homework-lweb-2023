@@ -101,6 +101,22 @@ input {
   margin-left: 8px;
 }
 
+.ml-32 {
+  margin-left: 32px;
+}
+
+.mt-8 {
+  margin-top: 8px;
+}
+
+.mt-32 {
+  margin-top: 32px;
+}
+
+.mb-8 {
+  margin-bottom: 8px;
+}
+
 .pt-32 {
   padding-top: 32px;
 }

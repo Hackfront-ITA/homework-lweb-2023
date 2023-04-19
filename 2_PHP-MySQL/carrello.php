@@ -92,20 +92,30 @@ if (!isset($_POST['azione'])) {
             <input type="number" name="quantita" value="<?php echo($quantita); ?>" min="0" step="1" size="3" max="99" />
             <button type="submit" name="azione" value="modifica" class="button ml-8">Modifica</button>
             <button type="submit" name="azione" value="rimuovi" class="button ml-8">Rimuovi</button>
-          </form>
+          </form> 
         </li>
+        <hr class="mt-8 mb-8 hr-corsi" />
 <?php
     }
   }
 ?>
       </ul>
 
-      <p>Totale: </p><p class="prezzo"><?php echo($totale); ?></p>
+<?php
+    if($totale == 0) {
+?>
+      <h3 class="centrato prezzo">Carrello vuoto!</h3>
+<?php
+      header("Refresh:1.5; url=shop.php");
+    }
+?>
+
+      <p class="mt-32" style="word-spacing: 15px;">Totale:  <span class="prezzo"><?php echo($totale); ?>&euro;</span> </p>
     </div>
 
     <div class="centrato pt-64">
       <a class="button" href="shop.php">Indietro</a>
-      <a class="button">Continua ordine</a>
+      <a class="button ml-32 centrato">Continua ordine</a>
     </div>
   </div>
 
