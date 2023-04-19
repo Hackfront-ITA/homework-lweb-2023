@@ -256,21 +256,14 @@ h1 > a {
   object-position: left -340px;
 }
 
-#galleria {
+#catalogo-shop {
   display: flex;
   flex-direction: row;
   gap: 10px;
 }
 
-#galleria > div {
+/*#galleria > div {
   display: flex;
   flex-direction: column;
   gap: 10px;
-}
-
-#galleria > div > div > img {
-  border-radius: 5px;
-  height: 100%;
-  object-fit: cover;
-  width: 100%;
-}
+}*/

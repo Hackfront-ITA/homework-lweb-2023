@@ -28,6 +28,13 @@
 
   <div id="contenuto">
     <h2>SHOP</h2>
+
+    <div id="catalogo-shop">
+        <div>
+            <img src="res/shop_img/shop_1.png" alt="shop_1.png"></img>
+        </div>
+
+    </div>
     
   </div>
 
