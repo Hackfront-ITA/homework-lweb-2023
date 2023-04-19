@@ -2,7 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
 <head>
-  <title>Servizi</title>
+  <title>Shop</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2&amp;display=swap" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rampart+One&amp;display=swap" />
   <link rel="stylesheet" type="text/css" href="stile.css" />
@@ -27,29 +27,8 @@
   </div>
 
   <div id="contenuto">
-    <h2>SERVIZI</h2>
-
-    <p>
-      R&amp;C GYM è il nuovo modo di vivere il fitness: convenienza, innovazione e qualità!<br />
-
-      Con soli 19,90 € al mese potrai avere tutti i vantaggi di entrare a far parte della grande famiglia R&amp;C GYM:<br />
-    </p>
-    <ul id="lista-servizi">
-      <li>Fitness senza limitazioni di orario d&rsquo;ingresso e permanenza</li>
-      <li>Cardio Theatre</li>
-      <li>Attrezzature innovative dai leader mondiali della produzione</li>
-      <li>Grandi spazi per allenarsi comodamente</li>
-      <li>Comodi spogliatoi sempre curati e puliti</li>
-      <li>Ambiente giovane e accogliente</li>
-      <li>Staff tecnico altamente qualificato</li>
-    </ul>
-    <p>
-      Ti aspettiamo!
-    </p>
-    <p class="centrato pt-32 pb-32"><button type="submit" class="button">Abbonati!</button></p>
-  </div>
-  <div id="banner">
-    <img src="res/banner.png" alt="Banner servizi"></img>
+    <h2>SHOP</h2>
+    
   </div>
 
   <div id="footer">
