@@ -1,0 +1,92 @@
+<?php
+const ARTICOLI = [
+  [ 'prezzo' => 19.99, 'nome' => "Proteine" ],
+  [ 'prezzo' =>  9.99, 'nome' => "Proteine" ],
+  [ 'prezzo' => 15.99, 'nome' => "Proteine" ],
+  [ 'prezzo' =>  4.99, 'nome' => "Proteine" ],
+  [ 'prezzo' =>  7.99, 'nome' => "Proteine" ],
+  [ 'prezzo' => 29.99, 'nome' => "Proteine" ],
+  [ 'prezzo' => 16.99, 'nome' => "Proteine" ],
+  [ 'prezzo' => 12.99, 'nome' => "Proteine" ],
+  [ 'prezzo' => 17.99, 'nome' => "Proteine" ],
+  [ 'prezzo' =>  5.99, 'nome' => "Proteine" ],
+  [ 'prezzo' => 19.99, 'nome' => "Proteine" ],
+  [ 'prezzo' =>  8.99, 'nome' => "Proteine" ],
+  [ 'prezzo' => 13.99, 'nome' => "Proteine" ],
+  [ 'prezzo' => 10.99, 'nome' => "Proteine" ],
+  [ 'prezzo' =>  3.99, 'nome' => "Proteine" ]
+];
+
+session_start();
+?>
+
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
+<head>
+  <title>Carrello</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2&amp;display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rampart+One&amp;display=swap" />
+  <link rel="stylesheet" type="text/css" href="stile.css" />
+</head>
+
+<body>
+
+  <div id="header">
+    <h1><a href="index.html">R&amp;C GYM</a></h1>
+    <table id="menu">
+      <tbody>
+        <tr>
+          <td><a href="index.html">Homepage</a></td>
+          <td><a href="corsi.html">Corsi</a></td>
+          <td><a href="servizi.html">Servizi</a></td>
+          <td><a href="shop.php">Shop</a></td>
+          <td><a href="info.html">Informazioni</a></td>
+        </tr>
+      </tbody>
+    </table>
+    <hr />
+  </div>
+
+  <div id="contenuto">
+    <h2>CARRELLO</h2>
+
+    <pre>
+      <?php var_dump($_POST); ?>
+      <?php var_dump($_SESSION); ?>
+    </pre>
+
+    <div>
+      <ul>
+<?php
+  if (isset($_SESSION['carrello'])) {
+    $carrello = $_SESSION['carrello'];
+    foreach (array_keys($carrello) as $i) {
+      if (!isset($carrello[$i]) || $carrello[$i] <= 0) {
+        continue;
+      }
+
+      $articolo = ARTICOLI[$i];
+      $quantita = $carrello[$i];
+?>
+        <li><?php echo($articolo['nome']); ?>, <?php echo($articolo['prezzo']); ?>, <?php echo($quantita); ?></li>
+<?php
+    }
+  }
+?>
+      </ul>
+    </div>
+
+    <div class="centrato pt-64">
+      <a class="button" href="shop.php">Indietro</a>
+      <a class="button">Continua ordine</a>
+    </div>
+  </div>
+
+  <div id="footer">
+    Copyright R&amp;C GYM 2023
+  </div>
+
+</body>
+
+</html>
