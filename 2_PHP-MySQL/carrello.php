@@ -18,6 +18,20 @@ const ARTICOLI = [
 ];
 
 session_start();
+
+if (!isset($_POST['azione'])) {
+  // Non fa niente
+} else if ($_POST['azione'] === 'modifica') {
+  $id_articolo = $_POST['id_articolo'] - 1;
+  $quantita = $_POST['quantita'];
+
+  $_SESSION['carrello'][$id_articolo] = $quantita * 1;
+} else if ($_POST['azione'] === 'rimuovi') {
+  $id_articolo = $_POST['id_articolo'] - 1;
+
+  unset($_SESSION['carrello'][$id_articolo]);
+}
+
 ?>
 
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -59,6 +73,7 @@ session_start();
     <div>
       <ul>
 <?php
+  $totale = 0;
   if (isset($_SESSION['carrello'])) {
     $carrello = $_SESSION['carrello'];
     foreach (array_keys($carrello) as $i) {
@@ -68,13 +83,24 @@ session_start();
 
       $articolo = ARTICOLI[$i];
       $quantita = $carrello[$i];
+
+      $totale += $quantita * $articolo['prezzo'];
 ?>
-        <li><?php echo($articolo['nome']); ?>, <?php echo($articolo['prezzo']); ?>, <?php echo($quantita); ?></li>
+        <li><?php echo($articolo['nome']); ?>, <?php echo($articolo['prezzo']); ?>
+          <form action="carrello.php" method="post">
+            <input type="hidden" name="id_articolo" value="<?php echo ($i + 1); ?>" />
+            <input type="number" name="quantita" value="<?php echo($quantita); ?>" min="0" step="1" size="3" max="99" />
+            <button type="submit" name="azione" value="modifica" class="button ml-8">Modifica</button>
+            <button type="submit" name="azione" value="rimuovi" class="button ml-8">Rimuovi</button>
+          </form>
+        </li>
 <?php
     }
   }
 ?>
       </ul>
+
+      <p>Totale: </p><p class="prezzo"><?php echo($totale); ?></p>
     </div>
 
     <div class="centrato pt-64">
