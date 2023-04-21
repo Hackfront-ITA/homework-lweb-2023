@@ -74,11 +74,11 @@ if (!isset($_POST['azione'])) {
     $articolo = ARTICOLI[$i];
     $id_articolo = $i + 1;
 ?>
-      <div>
+      <div id="posizionamento">
         <img src="res/shop_img/shop_<?php echo ($id_articolo); ?>.png"  alt="shop_<?php echo ($id_articolo); ?>.png" ></img>
         <p><?php echo ($articolo['nome']); ?></p>
         <p class="prezzo"><?php echo ($articolo['prezzo']); ?> &euro;</p>
-        <form action="shop.php" method="post" style="padding-top: 1em;">
+        <form action="shop.php#posizionamento" method="post" style="padding-top: 1em;">
           <input type="hidden" name="id_articolo" value="<?php echo ($id_articolo); ?>" />
           <input type="number" name="quantita" value="0" min="0" step="1" size="3" max="99" />
           <button type="submit" name="azione" value="aggiungi" class="button ml-8">Aggiungi</button>
