@@ -307,3 +307,7 @@ input {
   border-style: ridge;
   border-width: 3px;
 }
+
+#lista-carrello > li { 
+  list-style-type: "\1F6D2";
+}

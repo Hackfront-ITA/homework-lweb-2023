@@ -71,7 +71,7 @@ if (!isset($_POST['azione'])) {
     </pre>
 
     <div>
-      <ul>
+      <ul id="lista-carrello">
 <?php
   $totale = 0;
   if (isset($_SESSION['carrello'])) {
@@ -104,7 +104,7 @@ if (!isset($_POST['azione'])) {
 <?php
     if($totale == 0) {
 ?>
-      <h3 class="centrato prezzo">Carrello vuoto!</h3>
+      <h1 class="centrato prezzo">Carrello vuoto!</h1>
 <?php
       header("Refresh:1.5; url=shop.php");
     }
