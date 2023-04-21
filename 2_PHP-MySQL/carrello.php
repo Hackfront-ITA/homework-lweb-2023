@@ -87,7 +87,7 @@ if (!isset($_POST['azione'])) {
       $totale += $quantita * $articolo['prezzo'];
 ?>
         <li><?php echo($articolo['nome']); ?>, <?php echo($articolo['prezzo']); ?>
-          <form action="carrello.php" method="post">
+          <form class="mt-8" action="carrello.php" method="post">
             <input type="hidden" name="id_articolo" value="<?php echo ($i + 1); ?>" />
             <input type="number" name="quantita" value="<?php echo($quantita); ?>" min="0" step="1" size="3" max="99" />
             <button type="submit" name="azione" value="modifica" class="button ml-8">Modifica</button>
@@ -110,7 +110,7 @@ if (!isset($_POST['azione'])) {
     }
 ?>
 
-      <p class="mt-32" style="word-spacing: 15px;">Totale:  <span class="prezzo"><?php echo($totale); ?>&euro;</span> </p>
+      <p class="mt-32" style="word-spacing: 15px; padding-left: 40px;"><b>Totale</b>:  <span class="prezzo"><?php echo($totale); ?>&euro;</span> </p>
     </div>
 
     <div class="centrato pt-64">
