@@ -1,7 +1,7 @@
 <?php
 require ('install.php');
 
-const ARTICOLI = [
+/*const ARTICOLI = [
   [ 'prezzo' => 19.99, 'nome' => "Proteine" ],
   [ 'prezzo' =>  9.99, 'nome' => "Proteine" ],
   [ 'prezzo' => 15.99, 'nome' => "Proteine" ],
@@ -17,7 +17,7 @@ const ARTICOLI = [
   [ 'prezzo' => 13.99, 'nome' => "Proteine" ],
   [ 'prezzo' => 10.99, 'nome' => "Proteine" ],
   [ 'prezzo' =>  3.99, 'nome' => "Proteine" ]
-];
+];*/
 
 session_start();
 
@@ -70,16 +70,26 @@ if (!isset($_POST['azione'])) {
       <?php var_dump($_SESSION); ?>
     </pre>
 
-    <div id="catalogo-shop">
+    <div id="catalogo-shop">  
 <?php
+  /*
   for ($i = 0; $i < count(ARTICOLI); $i++) {
     $articolo = ARTICOLI[$i];
     $id_articolo = $i + 1;
+  */
+  $query = "SELECT * FROM $prodotto";
+  $result = mysqli_query($conn_db, $query);
+  if(!$result){
+    printf("Errore nella query.\n");
+  }
+  
+  $id_articolo = 1;
+  while($row = mysqli_fetch_assoc($result)){
 ?>
       <div id="posizionamento">
         <img src="res/shop_img/shop_<?php echo ($id_articolo); ?>.png"  alt="shop_<?php echo ($id_articolo); ?>.png" ></img>
-        <p><?php echo ($articolo['nome']); ?></p>
-        <p class="prezzo"><?php echo ($articolo['prezzo']); ?> &euro;</p>
+        <p><?php echo ($row["nome"]); ?></p>
+        <p class="prezzo"><?php echo ($row["prezzo"]); ?> &euro;</p>
         <form action="shop.php#posizionamento" method="post" style="padding-top: 1em;">
           <input type="hidden" name="id_articolo" value="<?php echo ($id_articolo); ?>" />
           <input type="number" name="quantita" value="0" min="0" step="1" size="3" max="99" />
@@ -87,6 +97,7 @@ if (!isset($_POST['azione'])) {
         </form>
       </div>
 <?php
+      $id_articolo += 1;
   }
 ?>
     </div>
