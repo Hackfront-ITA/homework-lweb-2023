@@ -1,4 +1,6 @@
 <?php
+require ('install.php');
+
 const ARTICOLI = [
   [ 'prezzo' => 19.99, 'nome' => "Proteine" ],
   [ 'prezzo' =>  9.99, 'nome' => "Proteine" ],
