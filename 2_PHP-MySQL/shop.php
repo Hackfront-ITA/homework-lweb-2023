@@ -77,6 +77,7 @@ if (!isset($_POST['azione'])) {
     $articolo = ARTICOLI[$i];
     $id_articolo = $i + 1;
   */
+  
   $query = "SELECT * FROM $prodotto";
   $result = mysqli_query($conn_db, $query);
   if(!$result){
