@@ -133,6 +133,10 @@ input {
   padding-bottom: 32px;
 }
 
+.pt-1em {
+  padding-top: 1em;
+}
+
 .scatola {
   border-color: #e04336;
   border-radius: 6px;
@@ -308,6 +312,18 @@ input {
   border-width: 3px;
 }
 
-#lista-carrello > li { 
+#lista-carrello > li {
   list-style-type: "\1F6D2";
+}
+
+#risultato-carrello {
+  padding-left: 40px;
+  word-spacing: 15px;
+}
+
+#invito-servizi {
+  color: #e04336;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-style: italic;
+  letter-spacing: 1.5px;
 }

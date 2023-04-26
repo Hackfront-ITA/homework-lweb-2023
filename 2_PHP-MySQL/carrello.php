@@ -69,7 +69,7 @@ if (!isset($_POST['azione'])) {
       if (!isset($_SESSION['carrello'][$articolo['id']])) {
         continue;
       }
-      
+
       $quantita = $_SESSION['carrello'][$articolo['id']];
       if ($quantita <= 0) {
         continue;
@@ -100,7 +100,10 @@ if (!isset($_POST['azione'])) {
     }
 ?>
 
-      <!-- TODO --><p class="mt-32" style="word-spacing: 15px; padding-left: 40px;"><b>Totale</b>:  <span class="prezzo"><?php echo($totale); ?>&euro;</span> </p>
+      <p id="risultato-carrello" class="mt-32">
+        <b>Totale</b>:
+        <span class="prezzo"><?php echo($totale); ?>&euro;</span>
+      </p>
     </div>
 
     <div class="centrato pt-64">
