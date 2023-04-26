@@ -17,14 +17,23 @@ $query  = "CREATE TABLE IF NOT EXISTS " . TBL_PRODOTTI . " (";
 $query .= "  id     INT          NOT NULL AUTO_INCREMENT, ";
 $query .= "  nome   VARCHAR(50)  NOT NULL, ";
 $query .= "  prezzo DECIMAL(5,2) NOT NULL, ";
-$query .= "  PRIMARY KEY(id), ";
-$query .= "  UNIQUE(nome)";
+$query .= "  PRIMARY KEY (id), ";
+$query .= "  UNIQUE (nome)";
 $query .= ");";
 
-if(!mysqli_query($conn_db, $query)){
+if (!mysqli_query($conn_db, $query)) {
     printf("Problemi nella creazione della tabella %s.\n", TBL_PRODOTTI);
     exit();
 }
+
+/*** Creazione tabella prenotazioni ***/
+$query  = "CREATE TABLE IF NOT EXISTS " . TBL_PRENOTAZIONI . " (";
+$query .= "  id      INT         NOT NULL AUTO_INCREMENT,";
+$query .= "  nome    VARCHAR(50) NOT NULL,";
+$query .= "  cognome VARCHAR(50) NOT NULL,";
+$query .= "  corso   ENUM('bruciagrassi','tonificazione','corpo-mente') NOT NULL,";
+$query .= "  PRIMARY KEY (`id`)";
+$query .= ");";
 
 /*** Inserimento tabella prodotti ***/
 $check = "SELECT * FROM " . TBL_PRODOTTI;

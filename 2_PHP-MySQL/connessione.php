@@ -5,6 +5,7 @@ const DB_PASSWORD = 'password';
 const DB_NAME = 'rc_gym';
 
 const TBL_PRODOTTI = "prodotti";
+const TBL_PRENOTAZIONI = "prenotazioni";
 
 function connessione_db ($senza_db = false) {
   if ($senza_db) {
