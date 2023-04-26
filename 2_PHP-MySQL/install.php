@@ -35,6 +35,11 @@ $query .= "  corso   ENUM('bruciagrassi','tonificazione','corpo-mente') NOT NULL
 $query .= "  PRIMARY KEY (`id`)";
 $query .= ");";
 
+if (!mysqli_query($conn_db, $query)) {
+    printf("Problemi nella creazione della tabella %s.\n", TBL_PRENOTAZIONI);
+    exit();
+}
+
 /*** Inserimento tabella prodotti ***/
 $check = "SELECT * FROM " . TBL_PRODOTTI;
 $result = mysqli_query($conn_db, $check);
