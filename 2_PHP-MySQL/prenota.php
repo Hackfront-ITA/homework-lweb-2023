@@ -55,7 +55,7 @@ if (isset($_POST['azione']) && $_POST['azione'] === 'prenota') {
           <td><a href="index.html">Homepage</a></td>
           <td><a href="corsi.html">Corsi</a></td>
           <td><a href="servizi.html">Servizi</a></td>
-          <td><a href="galleria.php">Galleria</a></td>
+          <td><a href="shop.php">Shop</a></td>
           <td><a href="info.html">Informazioni</a></td>
         </tr>
       </tbody>
