@@ -60,11 +60,11 @@ if (!isset($_POST['azione'])) {
 
   while ($row = mysqli_fetch_assoc($result)) {
 ?>
-      <div id="posizionamento">
+      <div id="articolo_<?php echo ($row['id']); ?>">
         <img src="res/shop_img/shop_<?php echo ($row['id']); ?>.png"  alt="shop_<?php echo ($row['id']); ?>.png" ></img>
         <p><?php echo ($row['nome']); ?></p>
         <p class="prezzo"><?php echo ($row['prezzo']); ?> &euro;</p>
-        <form action="shop.php#posizionamento" method="post" style="padding-top: 1em;">
+        <form action="shop.php#articolo_<?php echo ($row['id']); ?>" method="post" style="padding-top: 1em;">
           <input type="hidden" name="id_articolo" value="<?php echo ($row['id']); ?>" />
           <input type="number" name="quantita" value="0" min="0" step="1" size="3" max="99" />
           <button type="submit" name="azione" value="aggiungi" class="button ml-8">Aggiungi</button>
