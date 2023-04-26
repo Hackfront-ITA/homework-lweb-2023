@@ -17,12 +17,22 @@
 - All'interno dell'homework sono state utilizzati principalmente i seguenti tag XHTML e proprietà CSS:
     - &lt;div&gt;, &lt;table&gt;, &lt;ul&gt; per organizzare i contenuti delle varie pagine XHTML
     - &lt;img&gt; per l'inserimento di immagini
-    - &lt;a&gt;, &lt;button&gt; sono stati utilizzati con il medesimo stile, il primo per riferimenti interni al sito, mentre il secondo per sviluppi successivi (implementazione     PHP...) 
-    
+    - &lt;a&gt;, &lt;button&gt; sono stati utilizzati con il medesimo stile, il primo per riferimenti interni al sito, mentre il secondo per sviluppi successivi (implementazione PHP...)
+
     - padding, margin: per la disposizione degli elementi nella pagina
-    - border-... : per modifiche estetiche degli elementi 
+    - border-... : per modifiche estetiche degli elementi
     - font-size: per regolare la dimensione del testo
     - em: per regolare la dimensione degli elementi rispetto alla dimensione del testo
     - display: flex : per modificare il layout in modo flessibile
+
+### Homework 2 - PHP e MySQL
+- L'esercizio sviluppato è il proseguimento dell'homework precedente.
+  Sono state aggiunte le funzionalità di shop e prenotazione corsi mediante il database.
+
+- Le caratteristiche principali di PHP che sono state utlizzate sono:
+    - sessioni: per memorizzare lo stato del carrello lato server
+    - mysqli: per la connessione al database e le interrogazioni
+    - array $\_GET / $\_POST: per ottenere dati inviati dal client nelle richieste
+    - costanti: per memorizzare le credenziali del database e i nomi delle tabelle
 
 :snowman:
