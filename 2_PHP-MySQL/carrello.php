@@ -1,35 +1,23 @@
 <?php
-const ARTICOLI = [
-  [ 'prezzo' => 19.99, 'nome' => "Proteine" ],
-  [ 'prezzo' =>  9.99, 'nome' => "Proteine" ],
-  [ 'prezzo' => 15.99, 'nome' => "Proteine" ],
-  [ 'prezzo' =>  4.99, 'nome' => "Proteine" ],
-  [ 'prezzo' =>  7.99, 'nome' => "Proteine" ],
-  [ 'prezzo' => 29.99, 'nome' => "Proteine" ],
-  [ 'prezzo' => 16.99, 'nome' => "Proteine" ],
-  [ 'prezzo' => 12.99, 'nome' => "Proteine" ],
-  [ 'prezzo' => 17.99, 'nome' => "Proteine" ],
-  [ 'prezzo' =>  5.99, 'nome' => "Proteine" ],
-  [ 'prezzo' => 19.99, 'nome' => "Proteine" ],
-  [ 'prezzo' =>  8.99, 'nome' => "Proteine" ],
-  [ 'prezzo' => 13.99, 'nome' => "Proteine" ],
-  [ 'prezzo' => 10.99, 'nome' => "Proteine" ],
-  [ 'prezzo' =>  3.99, 'nome' => "Proteine" ]
-];
+require_once("connessione.php");
+
+$conn_db = connessione_db();
 
 session_start();
 
 if (!isset($_POST['azione'])) {
   // Non fa niente
 } else if ($_POST['azione'] === 'modifica') {
-  $id_articolo = $_POST['id_articolo'] - 1;
+  $id_articolo = $_POST['id_articolo'];
   $quantita = $_POST['quantita'];
 
   $_SESSION['carrello'][$id_articolo] = $quantita * 1;
 } else if ($_POST['azione'] === 'rimuovi') {
-  $id_articolo = $_POST['id_articolo'] - 1;
+  $id_articolo = $_POST['id_articolo'];
 
   unset($_SESSION['carrello'][$id_articolo]);
+} else if ($_POST['azione'] === 'svuota') {
+  unset($_SESSION['carrello']);
 }
 
 ?>
@@ -65,34 +53,37 @@ if (!isset($_POST['azione'])) {
   <div id="contenuto">
     <h2>CARRELLO</h2>
 
-    <pre>
-      <?php var_dump($_POST); ?>
-      <?php var_dump($_SESSION); ?>
-    </pre>
-
     <div>
       <ul id="lista-carrello">
 <?php
   $totale = 0;
   if (isset($_SESSION['carrello'])) {
-    $carrello = $_SESSION['carrello'];
-    foreach (array_keys($carrello) as $i) {
-      if (!isset($carrello[$i]) || $carrello[$i] <= 0) {
+    $query = "SELECT * FROM " . TBL_PRODOTTI;
+    $result = mysqli_query($conn_db, $query);
+    if (!$result) {
+      printf("Errore nella query.\n");
+      exit();
+    }
+
+    while ($articolo = mysqli_fetch_assoc($result)) {
+      if (!isset($_SESSION['carrello'][$articolo['id']])) {
+        continue;
+      }
+      
+      $quantita = $_SESSION['carrello'][$articolo['id']];
+      if ($quantita <= 0) {
         continue;
       }
 
-      $articolo = ARTICOLI[$i];
-      $quantita = $carrello[$i];
-
       $totale += $quantita * $articolo['prezzo'];
 ?>
-        <li><?php echo($articolo['nome']); ?>, <?php echo($articolo['prezzo']); ?>
+        <li><?php echo($articolo['nome']); ?>, <?php echo($articolo['prezzo']); ?> &euro;
           <form class="mt-8" action="carrello.php" method="post">
-            <input type="hidden" name="id_articolo" value="<?php echo ($i + 1); ?>" />
+            <input type="hidden" name="id_articolo" value="<?php echo ($articolo['id']); ?>" />
             <input type="number" name="quantita" value="<?php echo($quantita); ?>" min="0" step="1" size="3" max="99" />
             <button type="submit" name="azione" value="modifica" class="button ml-8">Modifica</button>
             <button type="submit" name="azione" value="rimuovi" class="button ml-8">Rimuovi</button>
-          </form> 
+          </form>
         </li>
         <hr class="mt-8 mb-8 hr-corsi" />
 <?php
@@ -102,20 +93,21 @@ if (!isset($_POST['azione'])) {
       </ul>
 
 <?php
-    if($totale == 0) {
+    if ($totale === 0) {
 ?>
       <h1 class="centrato prezzo">Carrello vuoto!</h1>
 <?php
-      header("Refresh:1.5; url=shop.php");
     }
 ?>
 
-      <p class="mt-32" style="word-spacing: 15px; padding-left: 40px;"><b>Totale</b>:  <span class="prezzo"><?php echo($totale); ?>&euro;</span> </p>
+      <!-- TODO --><p class="mt-32" style="word-spacing: 15px; padding-left: 40px;"><b>Totale</b>:  <span class="prezzo"><?php echo($totale); ?>&euro;</span> </p>
     </div>
 
     <div class="centrato pt-64">
-      <a class="button" href="shop.php">Indietro</a>
-      <a class="button ml-32 centrato">Continua ordine</a>
+      <form action="carrello.php" method="post">
+        <a class="button" href="shop.php">Indietro</a>
+        <button type="submit" name="azione" value="svuota" class="button ml-8">Svuota carrello</button>
+      </form>
     </div>
   </div>
 

@@ -1,30 +1,14 @@
 <?php
-require ('install.php');
+require_once("connessione.php");
 
-/*const ARTICOLI = [
-  [ 'prezzo' => 19.99, 'nome' => "Proteine" ],
-  [ 'prezzo' =>  9.99, 'nome' => "Proteine" ],
-  [ 'prezzo' => 15.99, 'nome' => "Proteine" ],
-  [ 'prezzo' =>  4.99, 'nome' => "Proteine" ],
-  [ 'prezzo' =>  7.99, 'nome' => "Proteine" ],
-  [ 'prezzo' => 29.99, 'nome' => "Proteine" ],
-  [ 'prezzo' => 16.99, 'nome' => "Proteine" ],
-  [ 'prezzo' => 12.99, 'nome' => "Proteine" ],
-  [ 'prezzo' => 17.99, 'nome' => "Proteine" ],
-  [ 'prezzo' =>  5.99, 'nome' => "Proteine" ],
-  [ 'prezzo' => 19.99, 'nome' => "Proteine" ],
-  [ 'prezzo' =>  8.99, 'nome' => "Proteine" ],
-  [ 'prezzo' => 13.99, 'nome' => "Proteine" ],
-  [ 'prezzo' => 10.99, 'nome' => "Proteine" ],
-  [ 'prezzo' =>  3.99, 'nome' => "Proteine" ]
-];*/
+$conn_db = connessione_db();
 
 session_start();
 
 if (!isset($_POST['azione'])) {
   // Non fa niente
 } else if ($_POST['azione'] === 'aggiungi') {
-  $id_articolo = $_POST['id_articolo'] - 1;
+  $id_articolo = $_POST['id_articolo'];
   $quantita = $_POST['quantita'];
 
   if (!isset($_SESSION['carrello'][$id_articolo])) {
@@ -65,40 +49,28 @@ if (!isset($_POST['azione'])) {
   <div id="contenuto">
     <h2>SHOP</h2>
 
-    <pre>
-      <?php var_dump($_POST); ?>
-      <?php var_dump($_SESSION); ?>
-    </pre>
-
-    <div id="catalogo-shop">  
+    <div id="catalogo-shop">
 <?php
-  /*
-  for ($i = 0; $i < count(ARTICOLI); $i++) {
-    $articolo = ARTICOLI[$i];
-    $id_articolo = $i + 1;
-  */
-  
-  $query = "SELECT * FROM $prodotto";
+  $query = "SELECT * FROM " . TBL_PRODOTTI;
   $result = mysqli_query($conn_db, $query);
-  if(!$result){
+  if (!$result) {
     printf("Errore nella query.\n");
+    exit();
   }
-  
-  $id_articolo = 1;
-  while($row = mysqli_fetch_assoc($result)){
+
+  while ($row = mysqli_fetch_assoc($result)) {
 ?>
       <div id="posizionamento">
-        <img src="res/shop_img/shop_<?php echo ($id_articolo); ?>.png"  alt="shop_<?php echo ($id_articolo); ?>.png" ></img>
-        <p><?php echo ($row["nome"]); ?></p>
-        <p class="prezzo"><?php echo ($row["prezzo"]); ?> &euro;</p>
+        <img src="res/shop_img/shop_<?php echo ($row['id']); ?>.png"  alt="shop_<?php echo ($row['id']); ?>.png" ></img>
+        <p><?php echo ($row['nome']); ?></p>
+        <p class="prezzo"><?php echo ($row['prezzo']); ?> &euro;</p>
         <form action="shop.php#posizionamento" method="post" style="padding-top: 1em;">
-          <input type="hidden" name="id_articolo" value="<?php echo ($id_articolo); ?>" />
+          <input type="hidden" name="id_articolo" value="<?php echo ($row['id']); ?>" />
           <input type="number" name="quantita" value="0" min="0" step="1" size="3" max="99" />
           <button type="submit" name="azione" value="aggiungi" class="button ml-8">Aggiungi</button>
         </form>
       </div>
 <?php
-      $id_articolo += 1;
   }
 ?>
     </div>
