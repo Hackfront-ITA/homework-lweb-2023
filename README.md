@@ -30,9 +30,10 @@
   Sono state aggiunte le funzionalità di shop e prenotazione corsi mediante il database.
 
 - Le caratteristiche principali di PHP che sono state utlizzate sono:
-    - sessioni: per memorizzare lo stato del carrello lato server
-    - mysqli: per la connessione al database e le interrogazioni
+    - sessioni: per memorizzare lo stato del carrello lato server (session_start, $\_SESSION)
+    - mysqli: per la connessione al database e le interrogazioni (mysqli_query, mysqli_fetch_assoc, mysqli_connect_error)
     - array $\_GET / $\_POST: per ottenere dati inviati dal client nelle richieste
     - costanti: per memorizzare le credenziali del database e i nomi delle tabelle
+    - isset(), unset(): per verificare l'esistenza di variabili ed eliminarne il contenuto
 
 :snowman:
