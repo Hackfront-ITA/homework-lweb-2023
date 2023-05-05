@@ -36,6 +36,17 @@ input {
   font-size: 0.85em;
 }
 
+table {
+  border-collapse: collapse;
+}
+
+table th, table td {
+  border: 1px solid #e04336;
+  padding: 0.1em 1em;
+  text-align: center;
+  width: max-content;
+}
+
 #homepage > h2, #contenuto > h2 {
   color: white;
   font-family: 'Baloo Bhaijaan 2', cursive;
@@ -173,17 +184,6 @@ input {
 #griglia-info > div {
   align-content: center;
   text-align: center;
-}
-
-#tabella-orari {
-  border-collapse: collapse;
-}
-
-#tabella-orari th, #tabella-orari td {
-  border: 1px solid #e04336;
-  padding: 0.1em 1em;
-  text-align: center;
-  width: max-content;
 }
 
 #header {
