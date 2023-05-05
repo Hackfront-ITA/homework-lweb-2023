@@ -47,6 +47,15 @@ table th, table td {
   width: max-content;
 }
 
+a {
+  color: #e04336;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #993e36;
+}
+
 #homepage > h2, #contenuto > h2 {
   color: white;
   font-family: 'Baloo Bhaijaan 2', cursive;
@@ -72,6 +81,7 @@ table th, table td {
 .button:hover {
   background-color: #bd3c31;
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  color: white;
 }
 
 .centrato {
