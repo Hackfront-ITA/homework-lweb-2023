@@ -66,7 +66,10 @@ if (isset($_POST['azione']) && $_POST['azione'] === 'prenota') {
   <div id="contenuto" class="centrato">
     <h2 class="pb-16">PRENOTAZIONE</h2>
 <?php if (!$prenotato) { ?>
-    <p class="pb-16">Posti disponibili: <?php echo($posti); ?></p>
+    <p class="">Posti disponibili: <?php echo($posti); ?></p>
+    <p class="pt-16 pb-32">
+      <a class="button" href="prenotazioni.php?corso=<?php echo($_GET['corso']); ?>">Visualizza prenotazioni</a>
+    </p>
 <?php   if ($posti > 0) { ?>
     <form action="prenota.php" method="POST">
       <label for="nome">Nome:</label><br>
