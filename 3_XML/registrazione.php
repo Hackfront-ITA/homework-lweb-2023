@@ -33,23 +33,25 @@ $conn_db = connessione_db();
 
   <div id="contenuto" class="centrato">
     <h2 class="pb-16">REGISTRAZIONE</h2>
-    <form action="registrazione.php" method="POST">
-      <label for="nome">Nome:</label><br>
-      <input type="text" id="nome" name="nome"><br><br>
+    <div class="compilazione-form mb-32 pt-16">
+      <form action="registrazione.php" method="POST">
+        <label for="nome">Nome:</label><br>
+        <input type="text" id="nome" name="nome"><br><br>
 
-      <label for="cognome">Cognome:</label><br>
-      <input type="text" id="cognome" name="cognome"><br><br>
+        <label for="cognome">Cognome:</label><br>
+        <input type="text" id="cognome" name="cognome"><br><br>
 
-      <label for="username">Nome utente:</label><br>
-      <input type="text" id="username" name="username"><br><br>
+        <label for="username">Nome utente:</label><br>
+        <input type="text" id="username" name="username"><br><br>
 
-      <label for="password">Password:</label><br>
-      <input type="password" id="password" name="password"><br><br>
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password"><br><br>
 
-      <button type="submit" name="azione" value="registrazione" class="button">Registrati!</button>
-    </form>
-    <div class="pt-16">
-      <a href="login.php">Accedi con un account esistente</a>
+        <button type="submit" name="azione" value="registrazione" class="button">Registrati!</button>
+      </form>
+      <div class="pt-16 mb-8">
+        <a href="login.php">Accedi con un account esistente</a>
+      </div>
     </div>
   </div>
 
