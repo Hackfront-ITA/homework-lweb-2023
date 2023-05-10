@@ -32,16 +32,13 @@ $conn_db = connessione_db();
   </div>
 
   <div id="contenuto" class="centrato">
-    <h2 class="pb-16">LOGIN</h2>
-    <div class="compilazione-form mb-32 pt-16">
+    <div class="compilazione-form mb-32 mt-32">
+      <h2 class="pb-16 pt-16 outline-font-login">LOGIN</h2>
       <form action="login.php" method="POST" >
         <label for="username">Nome utente:</label><br>
         <input type="text" id="username" name="username"><br><br>
-
         <label for="password">Password:</label><br>
         <input type="password" id="password" name="password"><br><br>
-
-        <!--<input type="hidden" name="corso" value="<?php echo ($_GET['corso']); ?>" /> -->
         <button type="submit" name="azione" value="prenota" class="button">Accedi</button>
       </form>
       <div class="pt-16 mb-8">
