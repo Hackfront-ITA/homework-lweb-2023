@@ -81,8 +81,8 @@ if (!isset($_POST['azione'])) {
           <form class="mt-8" action="carrello.php" method="post">
             <input type="hidden" name="id_articolo" value="<?php echo ($articolo['id']); ?>" />
             <input type="number" name="quantita" value="<?php echo($quantita); ?>" min="0" step="1" size="3" max="99" />
-            <button type="submit" name="azione" value="modifica" class="button ml-8">Modifica</button>
-            <button type="submit" name="azione" value="rimuovi" class="button ml-8">Rimuovi</button>
+            <button type="submit" name="azione" value="modifica" class="button-icona ml-8" title="modifica quantit&agrave;">&#x01F4DD</button>
+            <button type="submit" name="azione" value="rimuovi" class="button-icona ml-8" title="rimuovi elemento">&#x01F5D1</button>
           </form>
         </li>
         <hr class="mt-8 mb-8 hr-corsi" />
@@ -109,7 +109,7 @@ if (!isset($_POST['azione'])) {
     <div class="centrato pt-64">
       <form action="carrello.php" method="post">
         <a id="indietro-carrello" class="button" href="shop.php">Indietro</a>
-        <button type="submit" name="azione" value="svuota" class="button ml-8">Svuota carrello</button>
+        <button type="submit" name="azione" value="acquista" class="button ml-8">Prosegui ordine</button>
       </form>
     </div>
   </div>
