@@ -2,6 +2,23 @@
 require_once("connessione.php");
 
 $conn_db = connessione_db();
+
+if (isset($_POST['azione']) && $_POST['azione'] === 'registrazione') {
+  $nome = $_POST['nome'];
+  $cognome = $_POST['cognome'];
+  $username = $_POST['username'];
+  $password = $_POST['password'];
+
+  $query  = "INSERT INTO " . TBL_UTENTI . " (nome, cognome, username, password) VALUES ";
+  $query .= "( '$nome', '$cognome', '$username', '$password' )";
+
+  if (!mysqli_query($conn_db, $query)) {
+    printf("Problemi nell'inserimento dei dati nella tabella %s.\n", TBL_UTENTI);
+    exit();
+  } else {
+    
+  }
+}
 ?>
 
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -32,8 +49,8 @@ $conn_db = connessione_db();
   </div>
 
   <div id="contenuto" class="centrato">
-    <h2 class="pb-16">REGISTRAZIONE</h2>
-    <div class="compilazione-form mb-32 pt-16">
+    <div class="compilazione-form mb-32 mt-32">
+      <h2 class="pb-16 pt-16 outline-font-login">REGISTRAZIONE</h2>
       <form action="registrazione.php" method="POST">
         <label for="nome">Nome:</label><br>
         <input type="text" id="nome" name="nome"><br><br>

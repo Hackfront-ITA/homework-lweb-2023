@@ -6,6 +6,8 @@ const DB_NAME = 'rc_gym';
 
 const TBL_PRODOTTI = "prodotti";
 const TBL_PRENOTAZIONI = "prenotazioni";
+const TBL_UTENTI = "utenti";
+const TBL_ORDINI = "ordini";
 
 function connessione_db ($senza_db = false) {
   if ($senza_db) {

@@ -16,10 +16,7 @@ if (!isset($_POST['azione'])) {
   $id_articolo = $_POST['id_articolo'];
 
   unset($_SESSION['carrello'][$id_articolo]);
-} else if ($_POST['azione'] === 'svuota') {
-  unset($_SESSION['carrello']);
 }
-
 ?>
 
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -107,10 +104,8 @@ if (!isset($_POST['azione'])) {
     </div>
 
     <div class="centrato pt-64">
-      <form action="carrello.php" method="post">
         <a id="indietro-carrello" class="button" href="shop.php">Indietro</a>
-        <button type="submit" name="azione" value="acquista" class="button ml-8">Prosegui ordine</button>
-      </form>
+        <a id="indietro-carrello" class="button" href="login.php">Prosegui ordine</a>
     </div>
   </div>
 

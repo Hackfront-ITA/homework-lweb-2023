@@ -2,6 +2,14 @@
 require_once("connessione.php");
 
 $conn_db = connessione_db();
+
+session_start();
+
+if (isset($_POST['azione']) && $_POST['azione'] === 'accedi') {
+  $_SESSION['username'] = $_POST['username'];
+  
+}
+
 ?>
 
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -39,7 +47,7 @@ $conn_db = connessione_db();
         <input type="text" id="username" name="username"><br><br>
         <label for="password">Password:</label><br>
         <input type="password" id="password" name="password"><br><br>
-        <button type="submit" name="azione" value="prenota" class="button">Accedi</button>
+        <button type="submit" name="azione" value="accedi" class="button">Accedi</button>
       </form>
       <div class="pt-16 mb-8">
         <a href="registrazione.php">Registra un nuovo account</a>
