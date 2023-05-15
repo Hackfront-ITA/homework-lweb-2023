@@ -14,7 +14,7 @@ if (isset($_POST['azione']) && $_POST['azione'] === 'prenota') {
   op_prenotazione($conn_db, $nome, $cognome, $corso);
   $prenotato = true;
 } else if (isset($_GET['corso'])) {
-  $num_prenotazioni = op_num_prenotazioni($conn_db);
+  $num_prenotazioni = op_num_prenotazioni($conn_db, $_GET['corso']);
 
   $posti = NUM_MAX_POSTI - $num_prenotazioni;
 

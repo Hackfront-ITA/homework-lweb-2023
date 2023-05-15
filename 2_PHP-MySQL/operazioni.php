@@ -88,10 +88,10 @@ function op_creazione_ordine($conn_db, $id_utente, $indirizzo) {
 }
 
 
-function op_num_prenotazioni($conn_db) {
+function op_num_prenotazioni($conn_db, $corso) {
   $query = sprintf(
     "SELECT COUNT(*) AS num FROM %s WHERE corso = '%s'",
-    TBL_PRENOTAZIONI, $_GET['corso']
+    TBL_PRENOTAZIONI, $corso
   );
 
   try {
