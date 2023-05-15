@@ -42,11 +42,12 @@ if (!mysqli_query($conn_db, $query)) {
 
 /*** Creazione tabella utenti ***/
 $query  = "CREATE TABLE IF NOT EXISTS " . TBL_UTENTI . " (";
-$query .= "  id     INT          NOT NULL AUTO_INCREMENT, ";
-$query .= "  nome   VARCHAR(50)  NOT NULL, ";
-$query .= "  cognome VARCHAR(50) NOT NULL, ";
-$query .= "  username VARCHAR(50) NOT NULL, ";
-$query .= "  password VARCHAR(50) NOT NULL, ";
+$query .= "  id       INT          NOT NULL AUTO_INCREMENT, ";
+$query .= "  nome     VARCHAR(50)  NOT NULL, ";
+$query .= "  cognome  VARCHAR(50)  NOT NULL, ";
+$query .= "  username VARCHAR(50)  NOT NULL, ";
+$query .= "  password CHAR(32)     NOT NULL, ";
+$query .= "  credito  DECIMAL(5,2) NOT NULL DEFAULT 0.0, ";
 $query .= "  PRIMARY KEY (`id`), ";
 $query .= "  UNIQUE (username)";
 $query .= ");";
@@ -84,4 +85,5 @@ if (!mysqli_fetch_assoc($result)) {
   }
 }
 
+echo ('Installazione avvenuta con successo');
 ?>
