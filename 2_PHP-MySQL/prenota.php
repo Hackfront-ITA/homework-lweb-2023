@@ -14,17 +14,9 @@ if (isset($_POST['azione']) && $_POST['azione'] === 'prenota') {
   op_prenotazione($conn_db, $nome, $cognome, $corso);
   $prenotato = true;
 } else if (isset($_GET['corso'])) {
-  $query  = "SELECT COUNT(*) AS num FROM " . TBL_PRENOTAZIONI;
-  $query .= " WHERE corso = '" . $_GET['corso'] . "'";
-  $result = mysqli_query($conn_db, $query);
-  if (!$result) {
-    printf("Errore nella query.\n");
-    exit();
-  }
+  $num_prenotazioni = op_num_prenotazioni($conn_db);
 
-  $row = mysqli_fetch_assoc($result);
-
-  $posti = NUM_MAX_POSTI - $row['num'];
+  $posti = NUM_MAX_POSTI - $num_prenotazioni;
 
   $prenotato = false;
 } else {

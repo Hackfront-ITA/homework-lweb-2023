@@ -63,4 +63,25 @@ function op_prenotazione($conn_db, $nome, $cognome, $corso) {
     exit();
   }
 }
+
+
+function op_num_prenotazioni($conn_db) {
+  $query = sprintf(
+    "SELECT COUNT(*) AS num FROM %s WHERE corso = '%s'",
+    TBL_PRENOTAZIONI, $_GET['corso']
+  );
+
+  try {
+    $result = mysqli_query($conn_db, $query);
+    $row = mysqli_fetch_assoc($result);
+
+    return $row['num'];
+  } catch (Exception $err) {
+    $cod_err = $err->getSqlState();
+
+    printf("Errore sconosciuto nell'interrogazione al database: %s\n", $cod_err);
+    exit();
+  }
+}
+
 ?>
