@@ -1,5 +1,5 @@
 <?php
-require_once("connessione.php");
+require_once('connessione.php');
 
 /*** Creazione database ***/
 $conn_db = connessione_db(true);  // true: connessione senza database
@@ -40,6 +40,23 @@ if (!mysqli_query($conn_db, $query)) {
     exit();
 }
 
+/*** Creazione tabella utenti ***/
+$query  = "CREATE TABLE IF NOT EXISTS " . TBL_UTENTI . " (";
+$query .= "  id       INT          NOT NULL AUTO_INCREMENT, ";
+$query .= "  nome     VARCHAR(50)  NOT NULL, ";
+$query .= "  cognome  VARCHAR(50)  NOT NULL, ";
+$query .= "  username VARCHAR(50)  NOT NULL, ";
+$query .= "  password CHAR(32)     NOT NULL, ";
+$query .= "  credito  DECIMAL(5,2) NOT NULL DEFAULT 0.0, ";
+$query .= "  PRIMARY KEY (`id`), ";
+$query .= "  UNIQUE (username)";
+$query .= ");";
+
+if (!mysqli_query($conn_db, $query)) {
+    printf("Problemi nella creazione della tabella %s.\n", TBL_UTENTI);
+    exit();
+}
+
 /*** Inserimento tabella prodotti ***/
 $check = "SELECT * FROM " . TBL_PRODOTTI;
 $result = mysqli_query($conn_db, $check);
@@ -63,9 +80,10 @@ if (!mysqli_fetch_assoc($result)) {
   $query .= "  (\"Peanut Butter 495g\", 9.99);";
 
   if (!mysqli_query($conn_db, $query)) {
-    printf("Problemi nell'inserimento dei dati nella tabella %s.\n", $tbl_prodotti);
+    printf("Problemi nell'inserimento dei dati nella tabella %s.\n", TBL_PRODOTTI);
     exit();
   }
 }
 
+echo ('Installazione avvenuta con successo');
 ?>

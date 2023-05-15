@@ -1,5 +1,5 @@
 <?php
-require_once("connessione.php");
+require_once('connessione.php');
 
 $conn_db = connessione_db();
 
@@ -16,17 +16,14 @@ if (!isset($_POST['azione'])) {
   $id_articolo = $_POST['id_articolo'];
 
   unset($_SESSION['carrello'][$id_articolo]);
-} else if ($_POST['azione'] === 'svuota') {
-  unset($_SESSION['carrello']);
 }
-
 ?>
 
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
 <head>
-  <title>Carrello</title>
+  <title>Carrello &ndash; R&amp;C gym</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2&amp;display=swap" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rampart+One&amp;display=swap" />
   <link rel="stylesheet" type="text/css" href="stile.css" />
@@ -107,10 +104,8 @@ if (!isset($_POST['azione'])) {
     </div>
 
     <div class="centrato pt-64">
-      <form action="carrello.php" method="post">
         <a id="indietro-carrello" class="button" href="shop.php">Indietro</a>
-        <button type="submit" name="azione" value="acquista" class="button ml-8">Prosegui ordine</button>
-      </form>
+        <a id="indietro-carrello" class="button" href="ordine.php">Prosegui ordine</a>
     </div>
   </div>
 

@@ -1,5 +1,5 @@
 <?php
-require_once("connessione.php");
+require_once('connessione.php');
 
 $conn_db = connessione_db();
 ?>
@@ -8,7 +8,7 @@ $conn_db = connessione_db();
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
 <head>
-  <title>Corsi</title>
+  <title>Prenotazioni &ndash; R&amp;C gym</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2&amp;display=swap" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rampart+One&amp;display=swap" />
   <link rel="stylesheet" type="text/css" href="stile.css" />

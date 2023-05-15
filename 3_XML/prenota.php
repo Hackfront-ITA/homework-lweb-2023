@@ -1,34 +1,22 @@
 <?php
-require_once("connessione.php");
+require_once('connessione.php');
+require_once('operazioni.php');
 
 $conn_db = connessione_db();
 
 const NUM_MAX_POSTI = 30;
 
 if (isset($_POST['azione']) && $_POST['azione'] === 'prenota') {
-  $query  = sprintf(
-    "INSERT INTO %s (nome, cognome, corso) VALUES ('%s', '%s', '%s')",
-    TBL_PRENOTAZIONI, $_POST['nome'], $_POST['cognome'], $_POST['corso']
-  );
-  $result = mysqli_query($conn_db, $query);
-  if (!$result) {
-    printf("Errore nella query.\n");
-    exit();
-  }
+  $nome = $_POST['nome'];
+  $cognome = $_POST['cognome'];
+  $corso = $_POST['corso'];
 
+  op_prenotazione($conn_db, $nome, $cognome, $corso);
   $prenotato = true;
 } else if (isset($_GET['corso'])) {
-  $query  = "SELECT COUNT(*) AS num FROM " . TBL_PRENOTAZIONI;
-  $query .= " WHERE corso = '" . $_GET['corso'] . "'";
-  $result = mysqli_query($conn_db, $query);
-  if (!$result) {
-    printf("Errore nella query.\n");
-    exit();
-  }
+  $num_prenotazioni = op_num_prenotazioni($conn_db);
 
-  $row = mysqli_fetch_assoc($result);
-
-  $posti = NUM_MAX_POSTI - $row['num'];
+  $posti = NUM_MAX_POSTI - $num_prenotazioni;
 
   $prenotato = false;
 } else {
@@ -40,7 +28,7 @@ if (isset($_POST['azione']) && $_POST['azione'] === 'prenota') {
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
 <head>
-  <title>Corsi</title>
+  <title>Prenota corso &ndash; R&amp;C gym</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2&amp;display=swap" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rampart+One&amp;display=swap" />
   <link rel="stylesheet" type="text/css" href="stile.css" />
