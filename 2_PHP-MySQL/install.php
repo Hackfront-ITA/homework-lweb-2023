@@ -1,5 +1,5 @@
 <?php
-require_once("connessione.php");
+require_once('connessione.php');
 
 /*** Creazione database ***/
 $conn_db = connessione_db(true);  // true: connessione senza database

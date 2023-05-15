@@ -1,21 +1,17 @@
 <?php
-require_once("connessione.php");
+require_once('connessione.php');
+require_once('operazioni.php');
 
 $conn_db = connessione_db();
 
 const NUM_MAX_POSTI = 30;
 
 if (isset($_POST['azione']) && $_POST['azione'] === 'prenota') {
-  $query  = sprintf(
-    "INSERT INTO %s (nome, cognome, corso) VALUES ('%s', '%s', '%s')",
-    TBL_PRENOTAZIONI, $_POST['nome'], $_POST['cognome'], $_POST['corso']
-  );
-  $result = mysqli_query($conn_db, $query);
-  if (!$result) {
-    printf("Errore nella query.\n");
-    exit();
-  }
+  $nome = $_POST['nome'];
+  $cognome = $_POST['cognome'];
+  $corso = $_POST['corso'];
 
+  op_prenotazione($conn_db, $nome, $cognome, $corso);
   $prenotato = true;
 } else if (isset($_GET['corso'])) {
   $query  = "SELECT COUNT(*) AS num FROM " . TBL_PRENOTAZIONI;

@@ -1,5 +1,6 @@
 <?php
-require_once("connessione.php");
+require_once('connessione.php');
+require_once('operazioni.php');
 
 $conn_db = connessione_db();
 
@@ -10,38 +11,23 @@ $login = isset($_POST['azione']) && $_POST['azione'] === 'accedi';
 
 if ($sessione) {
   $loggato = true;
-  $redirect = $_GET['redirect'];
+  $redirect = isset($_GET['redirect']) ? $_GET['redirect'] : '';
 
 } else if (!$login) {
   $loggato = false;
-  $redirect = $_GET['redirect'];
+  $redirect = isset($_GET['redirect']) ? $_GET['redirect'] : '';
 
 } else {
   $username = $_POST['username'];
   $password = $_POST['password'];
-  $redirect = $_POST['redirect'];
+  $redirect = isset($_POST['redirect']) ? $_POST['redirect'] : '';
 
-  $query  = "SELECT id FROM " . TBL_UTENTI . " ";
-  $query .= "WHERE username = '$username' AND password = MD5('$password') ";
-  $query .= "LIMIT 1";
-
-  try {
-    $result = mysqli_query($conn_db, $query);
-    $row = mysqli_fetch_assoc($result);
-    if (!$row) {
-      $loggato = false;
-    } else {
-      $loggato = true;
-      $_SESSION['id_utente'] = $row['id'];
-    }
-  } catch (Exception $err) {
-    $cod_err = $err->getSqlState();
-    if ($cod_err === '23000') {
-      $loggato = false;
-    } else {
-      printf("Problemi nell'inserimento dei dati nella tabella %s.\n", TBL_UTENTI);
-      exit();
-    }
+  $id_utente = op_login($conn_db, $username, $password);
+  if ($id_utente < 0) {
+    $loggato = false;
+  } else {
+    $loggato = true;
+    $_SESSION['id_utente'] = $id_utente;
   }
 }
 

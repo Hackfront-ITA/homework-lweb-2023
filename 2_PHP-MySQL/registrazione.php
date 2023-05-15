@@ -1,9 +1,12 @@
 <?php
-require_once("connessione.php");
+require_once('connessione.php');
+require_once('operazioni.php');
 
 $conn_db = connessione_db();
 
+$errore = 'nessuno';
 $registrazione = isset($_POST['azione']) && $_POST['azione'] === 'registrazione';
+
 if ($registrazione) {
   $nome = $_POST['nome'];
   $cognome = $_POST['cognome'];
@@ -15,22 +18,7 @@ if ($registrazione) {
   } else if (!preg_match('/^[A-Za-z0-9!£$%&()=?^,.;:_|]{8,}$/', $password)) {
     $errore = 'password';
   } else {
-    $query  = "INSERT INTO " . TBL_UTENTI . " (nome, cognome, username, password) VALUES ";
-    $query .= "( '$nome', '$cognome', '$username', MD5('$password') )";
-
-    try {
-      mysqli_query($conn_db, $query);
-      $registrato = true;
-    } catch (Exception $err) {
-      $cod_err = $err->getSqlState();
-
-      if ($cod_err === '23000') {
-        $registrato = false;
-      } else {
-        printf("Problemi nell'inserimento dei dati nella tabella %s.\n", TBL_UTENTI);
-        exit();
-      }
-    }
+    $registrato = op_registrazione($conn_db, $nome, $cognome, $username, $password);
   }
 } else {
   $nome = '';
@@ -70,7 +58,7 @@ if ($registrazione) {
   <div id="contenuto" class="centrato">
     <div id="form-account" class="mb-32 mt-32">
       <h2 class="pb-16 pt-16 outline-font-login">REGISTRAZIONE</h2>
-<?php if (!$registrazione || isset($errore)) { ?>
+<?php if (!$registrazione || $errore !== 'nessuno') { ?>
       <form action="registrazione.php" method="POST">
         <label for="nome">Nome:</label><br>
         <input type="text" id="nome" name="nome" value="<?php echo($nome); ?>"><br><br>

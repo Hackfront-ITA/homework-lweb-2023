@@ -1,5 +1,5 @@
 <?php
-require_once("connessione.php");
+require_once('connessione.php');
 
 $conn_db = connessione_db();
 ?>
