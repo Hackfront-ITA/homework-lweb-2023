@@ -1,6 +1,7 @@
 <?php
 require_once('connessione.php');
 
+
 function op_login($conn_db, $username, $password) {
   $query = sprintf(
     "SELECT id FROM %s WHERE username = '%s' AND password = MD5('%s') LIMIT 1",
@@ -26,6 +27,7 @@ function op_login($conn_db, $username, $password) {
   }
 }
 
+
 function op_registrazione($conn_db, $nome, $cognome, $username, $password) {
   $query = sprintf(
     "INSERT INTO %s (nome, cognome, username, password) VALUES ('%s', '%s', '%s', MD5('%s'))",
@@ -47,10 +49,31 @@ function op_registrazione($conn_db, $nome, $cognome, $username, $password) {
   }
 }
 
+
 function op_prenotazione($conn_db, $nome, $cognome, $corso) {
   $query  = sprintf(
     "INSERT INTO %s (nome, cognome, corso) VALUES ('%s', '%s', '%s')",
     TBL_PRENOTAZIONI, $nome, $cognome, $corso
+  );
+
+  try {
+    mysqli_query($conn_db, $query);
+    return true;
+  } catch (Exception $err) {
+    $cod_err = $err->getSqlState();
+
+    printf("Errore sconosciuto nell'inserimento dei dati: %s.\n", $cod_err);
+    exit();
+  }
+}
+
+
+function op_creazione_ordine($conn_db, $id_utente, $indirizzo) {
+  return;
+
+  $query  = sprintf(
+    "INSERT INTO %s (id_utente, indirizzo) VALUES (%d, '%s')",
+    TBL_ORDINI, $id_utente, $indirizzo
   );
 
   try {
