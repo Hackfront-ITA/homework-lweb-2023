@@ -35,5 +35,6 @@
     - array $\_GET / $\_POST: per ottenere dati inviati dal client nelle richieste
     - costanti: per memorizzare le credenziali del database e i nomi delle tabelle
     - isset(), unset(): per verificare l'esistenza di variabili ed eliminarne il contenuto
+    - header('Location: ...'): per reindirizzamenti nello shop e nel login
 
 :snowman:
