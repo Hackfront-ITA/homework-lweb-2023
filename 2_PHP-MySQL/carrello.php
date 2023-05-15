@@ -105,7 +105,7 @@ if (!isset($_POST['azione'])) {
 
     <div class="centrato pt-64">
         <a id="indietro-carrello" class="button" href="shop.php">Indietro</a>
-        <a id="indietro-carrello" class="button" href="login.php">Prosegui ordine</a>
+        <a id="indietro-carrello" class="button" href="ordine.php">Prosegui ordine</a>
     </div>
   </div>
 
