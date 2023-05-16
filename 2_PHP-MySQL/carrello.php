@@ -92,7 +92,7 @@ if (!isset($_POST['azione'])) {
 <?php
     if ($totale === 0) {
 ?>
-      <h1 class="centrato prezzo">Carrello vuoto!</h1>
+      <h2 class="centrato prezzo">Carrello vuoto, non &egrave; possibile proseguire con l&rsquo;ordine!</h2>
 <?php
     }
 ?>
