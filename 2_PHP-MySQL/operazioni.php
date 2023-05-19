@@ -69,8 +69,6 @@ function op_prenotazione($conn_db, $nome, $cognome, $corso) {
 
 
 function op_creazione_ordine($conn_db, $id_utente, $indirizzo) {
-  return;
-
   $query  = sprintf(
     "INSERT INTO %s (id_utente, indirizzo) VALUES (%d, '%s')",
     TBL_ORDINI, $id_utente, $indirizzo
