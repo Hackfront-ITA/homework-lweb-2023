@@ -59,9 +59,9 @@ if (!mysqli_query($conn_db, $query)) {
 
 /*** Creazione tabella ordini ***/
 $query  = "CREATE TABLE IF NOT EXISTS " . TBL_ORDINI . " (";
-$query .= "  id       INT          NOT NULL AUTO_INCREMENT, ";
-$query .= "  username VARCHAR(50)  NOT NULL, ";
-$query .= "  importo  DECIMAL(5,2) NOT NULL DEFAULT 0.0, ";
+$query .= "  id         INT          NOT NULL AUTO_INCREMENT, ";
+$query .= "  id_utente  INT  NOT NULL, ";
+$query .= "  indirizzo  VARCHAR(100)  NOT NULL, ";
 $query .= "  PRIMARY KEY (`id`)";
 $query .= ");";
 
