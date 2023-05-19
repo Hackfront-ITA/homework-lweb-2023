@@ -21,7 +21,7 @@ if ($creazione) {
 
   if ($indirizzo === '') {
     $errore = 'vuoto';
-  } else if (!preg_match('/^(.+),(.+),(.+)$/', $indirizzo)) {
+  } else if (!preg_match('/^(w+),(w+),(w+)$/', $indirizzo)) {
     $errore = 'indirizzo';
   } else {
     $id_utente = $_SESSION['id_utente'];
