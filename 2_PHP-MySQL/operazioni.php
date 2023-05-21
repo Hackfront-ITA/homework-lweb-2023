@@ -105,4 +105,28 @@ function op_num_prenotazioni($conn_db, $corso) {
   }
 }
 
+function op_ins_articoli_ordini($conn_db, $carrello, $id_ordine, $id_utente) { #SISTEMARE
+  foreach ($carrello as $key => $value) {
+    $quantita = $value;
+    $id_prodotto = $key;  #SISTEMARE ID PRODOTTO
+
+    $query  = sprintf(
+      "INSERT INTO %s VALUES ('%d', '%d', '%d', '%d')",
+      TBL_ARTICOLI_ORDINI, $id_ordine, $id_utente, $id_prodotto, $quantita
+    );
+  }
+
+  try {
+    $result = mysqli_query($conn_db, $query);
+    $row = mysqli_fetch_assoc($result);
+
+    return $row['num'];
+  } catch (Exception $err) {
+    $cod_err = $err->getSqlState();
+
+    printf("Errore sconosciuto nell'interrogazione al database: %s\n", $cod_err);
+    exit();
+  }
+}
+
 ?>

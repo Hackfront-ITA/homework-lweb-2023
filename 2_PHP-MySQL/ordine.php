@@ -24,8 +24,14 @@ if ($creazione) {
   } else if (!preg_match('/^([[:alnum:]]+), ([a-zA-Z]+), ([a-zA-Z]+)$/', $indirizzo)) {
     $errore = 'indirizzo';
   } else {
+    $query = "SELECT MAX(id) FROM " . TBL_ORDINI;
+    $result = mysqli_query($conn_db, $query);
+    $id_ordine = mysqli_fetch_assoc($result);
+
+    $carrello = $_SESSION['carrello'];
     $id_utente = $_SESSION['id_utente'];
     op_creazione_ordine($conn_db, $id_utente, $indirizzo);
+    op_ins_articoli_ordini($conn_db, $carrello, $id_ordine, $id_utente);
     $creato = true;
   }
 } else {
