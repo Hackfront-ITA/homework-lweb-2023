@@ -73,19 +73,9 @@ if (!mysqli_query($conn_db, $query)) {
 /*** Creazione tabella articoli_ordini ***/
 $query  = "CREATE TABLE IF NOT EXISTS " . TBL_ARTICOLI_ORDINI . " (";
 $query .= "  id_ordine    INT  NOT NULL, ";
-$query .= "  id_utente    INT  NOT NULL, ";
 $query .= "  id_prodotto  INT  NOT NULL, ";
 $query .= "  quantita     INT  NOT NULL, ";
-$query .= "  PRIMARY KEY (`id_ordine`, `id_prodotto`), ";
-$query .= "  FOREIGN KEY (`id_ordine`) REFERENCES ". TBL_ORDINI . " (`id`) ";
-$query .= "  ON UPDATE RESTRICT ";
-$query .= "  ON DELETE RESTRICT,";
-$query .= "  FOREIGN KEY (`id_utente`) REFERENCES ". TBL_UTENTI . " (`id`) ";
-$query .= "  ON UPDATE RESTRICT ";
-$query .= "  ON DELETE RESTRICT,";
-$query .= "  FOREIGN KEY (`id_prodotto`) REFERENCES ". TBL_PRODOTTI . " (`id`) ";
-$query .= "  ON UPDATE RESTRICT ";
-$query .= "  ON DELETE RESTRICT ";
+$query .= "  PRIMARY KEY (`id_ordine`, `id_prodotto`)";
 $query .= ");";
 
 if (!mysqli_query($conn_db, $query)) {

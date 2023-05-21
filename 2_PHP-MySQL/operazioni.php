@@ -76,7 +76,7 @@ function op_creazione_ordine($conn_db, $id_utente, $indirizzo) {
 
   try {
     mysqli_query($conn_db, $query);
-    return true;
+    return $conn_db->insert_id;
   } catch (Exception $err) {
     $cod_err = $err->getSqlState();
 
@@ -105,28 +105,27 @@ function op_num_prenotazioni($conn_db, $corso) {
   }
 }
 
-function op_ins_articoli_ordini($conn_db, $carrello, $id_ordine, $id_utente) { #SISTEMARE
+function op_ins_articoli_ordini($conn_db, $id_ordine, $carrello) {
   foreach ($carrello as $key => $value) {
+    $id_prodotto = $key;
     $quantita = $value;
-    $id_prodotto = $key;  #SISTEMARE ID PRODOTTO
 
-    $query  = sprintf(
-      "INSERT INTO %s VALUES ('%d', '%d', '%d', '%d')",
-      TBL_ARTICOLI_ORDINI, $id_ordine, $id_utente, $id_prodotto, $quantita
+    $query = sprintf(
+      "INSERT INTO %s VALUES ('%d', '%d', '%d')",
+      TBL_ARTICOLI_ORDINI, $id_ordine, $id_prodotto, $quantita
     );
+
+    try {
+      mysqli_query($conn_db, $query);
+    } catch (Exception $err) {
+      $cod_err = $err->getSqlState();
+
+      printf("Errore sconosciuto nell'inserimento dei dati: %s\n", $cod_err);
+      exit();
+    }
   }
-
-  try {
-    $result = mysqli_query($conn_db, $query);
-    $row = mysqli_fetch_assoc($result);
-
-    return $row['num'];
-  } catch (Exception $err) {
-    $cod_err = $err->getSqlState();
-
-    printf("Errore sconosciuto nell'interrogazione al database: %s\n", $cod_err);
-    exit();
-  }
+  
+  return true;
 }
 
 ?>
