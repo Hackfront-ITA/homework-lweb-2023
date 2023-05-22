@@ -74,7 +74,6 @@ if ($creazione) {
         <button type="submit" name="azione" value="crea_ordine" class="button">Conferma</button>
       </form>
       <div class="pt-16 mb-8">
-        <p>tsk tsk...</p>
 <?php   if ($errore === 'vuoto') { ?>
         <p>Tutti i campi devono essere compilati</p>
 <?php   } else if ($errore === 'indirizzo') { ?>
