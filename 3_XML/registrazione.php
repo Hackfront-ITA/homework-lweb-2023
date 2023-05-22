@@ -88,7 +88,7 @@ if ($registrazione) {
 <?php } else { ?>
       <p>Errore nella creazione dell'account.</p>
       <p>L'account esiste gi&agrave;?</p>
-      <p>tsk... prova ad accedere</p>
+      <p>Prova ad accedere...</p>
       <a href="login.php">Accedi</a>
 <?php } ?>
     </div>

@@ -57,6 +57,32 @@ if (!mysqli_query($conn_db, $query)) {
     exit();
 }
 
+/*** Creazione tabella ordini ***/
+$query  = "CREATE TABLE IF NOT EXISTS " . TBL_ORDINI . " (";
+$query .= "  id         INT          NOT NULL AUTO_INCREMENT, ";
+$query .= "  id_utente  INT          NOT NULL, ";
+$query .= "  indirizzo  VARCHAR(100) NOT NULL, ";
+$query .= "  PRIMARY KEY (`id`)";
+$query .= ");";
+
+if (!mysqli_query($conn_db, $query)) {
+    printf("Problemi nella creazione della tabella %s.\n", TBL_ORDINI);
+    exit();
+}
+
+/*** Creazione tabella articoli_ordini ***/
+$query  = "CREATE TABLE IF NOT EXISTS " . TBL_ARTICOLI_ORDINI . " (";
+$query .= "  id_ordine    INT  NOT NULL, ";
+$query .= "  id_prodotto  INT  NOT NULL, ";
+$query .= "  quantita     INT  NOT NULL, ";
+$query .= "  PRIMARY KEY (`id_ordine`, `id_prodotto`)";
+$query .= ");";
+
+if (!mysqli_query($conn_db, $query)) {
+    printf("Problemi nella creazione della tabella %s.\n", TBL_ARTICOLI_ORDINI);
+    exit();
+}
+
 /*** Inserimento tabella prodotti ***/
 $check = "SELECT * FROM " . TBL_PRODOTTI;
 $result = mysqli_query($conn_db, $check);

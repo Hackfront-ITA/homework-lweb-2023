@@ -8,6 +8,7 @@ const TBL_PRODOTTI = "prodotti";
 const TBL_PRENOTAZIONI = "prenotazioni";
 const TBL_UTENTI = "utenti";
 const TBL_ORDINI = "ordini";
+const TBL_ARTICOLI_ORDINI = "articoli_ordini";
 
 function connessione_db ($senza_db = false) {
   $conn_db = null;

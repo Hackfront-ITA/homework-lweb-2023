@@ -21,11 +21,14 @@ if ($creazione) {
 
   if ($indirizzo === '') {
     $errore = 'vuoto';
-  } else if (!preg_match('/^(.+),(.+),(.+)$/', $indirizzo)) {
+  } else if (!preg_match('/^([[:alnum:] ]+), ([a-zA-Z ]+), ([a-zA-Z ]+)$/', $indirizzo)) {
     $errore = 'indirizzo';
   } else {
+    $carrello = $_SESSION['carrello'];
     $id_utente = $_SESSION['id_utente'];
-    op_creazione_ordine($conn_db, $id_utente, $indirizzo);
+    $id_ordine = op_creazione_ordine($conn_db, $id_utente, $indirizzo);
+    op_ins_articoli_ordini($conn_db, $id_ordine, $carrello);
+    unset($_SESSION['carrello']);
     $creato = true;
   }
 } else {
@@ -71,7 +74,6 @@ if ($creazione) {
         <button type="submit" name="azione" value="crea_ordine" class="button">Conferma</button>
       </form>
       <div class="pt-16 mb-8">
-        <p>tsk tsk...</p>
 <?php   if ($errore === 'vuoto') { ?>
         <p>Tutti i campi devono essere compilati</p>
 <?php   } else if ($errore === 'indirizzo') { ?>
