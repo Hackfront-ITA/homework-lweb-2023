@@ -81,9 +81,9 @@ if ($registrazione) {
 <?php   } else if ($errore === 'password') { ?>
         <p class="mt-8">La password deve contenere almeno 8 caratteri, tra i quali:</p>
         <ul id="formato_password">
-          <li>lettere maiuscole</li>
-          <li>lettere minuscole</li>
-          <li>caratteri speciali</li>
+          <li>lettere maiuscole: A &mdash; Z</li>
+          <li>lettere minuscole: a &mdash; z</li>
+          <li>caratteri speciali: 0 &mdash; 9, !£$%&()=?^,.;:_|]</li>
         </ul>
 <?php   } ?>
       </div>
