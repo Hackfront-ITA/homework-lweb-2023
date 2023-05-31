@@ -117,9 +117,9 @@ $result = mysqli_query($conn_db, $check);
 
 if (!mysqli_fetch_assoc($result)) {
   $query  = "INSERT INTO " . TBL_UTENTI . " (nome, cognome, username, password) VALUES ";
-  $query .= "  (\"Alessandro\", \"Cecchetto\", \"guest1\", MD5(\"Guest1.\") ), ";
-  $query .= "  (\"Emanuele\", \"Roccia\", \"guest2\", MD5(\"Guest2.\") ), ";
-  $query .= "  (\"Mario\", \"Rossi\", \"guest3\", MD5(\"Guest3.\") ); ";
+  $query .= "  (\"Giovanni\", \"Rossi\",   \"grossi\",   MD5(\"utente1!\") ), ";
+  $query .= "  (\"Mario\",    \"Bianchi\", \"mbianchi\", MD5(\"utente2!\") ), ";
+  $query .= "  (\"Alfonso\",  \"Verdi\",   \"averdi\",   MD5(\"utente3!\") ); ";
 
   if (!mysqli_query($conn_db, $query)) {
     printf("Problemi nell'inserimento dei dati nella tabella %s.\n", TBL_UTENTI);

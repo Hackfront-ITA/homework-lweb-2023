@@ -79,11 +79,12 @@ if ($registrazione) {
 <?php   if ($errore === 'vuoto') { ?>
         <p>Tutti i campi devono essere compilati</p>
 <?php   } else if ($errore === 'password') { ?>
-        <p class="mt-8">La password deve contenere almeno 8 caratteri, tra i quali:</p>
+        <p class="mt-8">La password deve contenere almeno 8 caratteri, tra i quali sono ammessi:</p>
         <ul id="formato_password">
-          <li>lettere maiuscole: A &mdash; Z</li>
-          <li>lettere minuscole: a &mdash; z</li>
-          <li>caratteri speciali: 0 &mdash; 9, !£$%&()=?^,.;:_|]</li>
+          <li>lettere maiuscole: A&ndash;Z</li>
+          <li>lettere minuscole: a&ndash;z</li>
+          <li>numeri: 0&ndash;9</li>
+          <li>caratteri speciali: &excl;&pound;&dollar;&percnt;&amp;&lpar;&rpar;&equals;&quest;&Hat;&comma;&period;&semi;&colon;&lowbar;&vert;</li>
         </ul>
 <?php   } ?>
       </div>
