@@ -18,7 +18,6 @@ if (!isset($_POST['azione'])) {
   unset($_SESSION['carrello'][$id_articolo]);
 }
 ?>
-
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
@@ -32,15 +31,22 @@ if (!isset($_POST['azione'])) {
 <body>
 
   <div id="header">
-    <h1><a href="index.html">R&amp;C GYM</a></h1>
+    <h1><a href="index.php">R&amp;C GYM</a></h1>
+    <span id="btn-log">
+<?php if (isset($_SESSION['id_utente'])) { ?>
+      <a href="logout.php">LOGOUT</a>
+<?php } else { ?>
+      <a href="login.php?redirect=carrello.php">LOGIN</a>
+<?php } ?>
+    </span>
     <table id="menu">
       <tbody>
         <tr>
-          <td><a href="index.html">Homepage</a></td>
-          <td><a href="corsi.html">Corsi</a></td>
-          <td><a href="servizi.html">Servizi</a></td>
+          <td><a href="index.php">Homepage</a></td>
+          <td><a href="corsi.php">Corsi</a></td>
+          <td><a href="servizi.php">Servizi</a></td>
           <td><a href="shop.php">Shop</a></td>
-          <td><a href="info.html">Informazioni</a></td>
+          <td><a href="info.php">Informazioni</a></td>
         </tr>
       </tbody>
     </table>
