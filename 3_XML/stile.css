@@ -199,6 +199,14 @@ a:hover {
   cursor: pointer;
 }
 
+.button-ricarica {
+  border: none;
+  background: transparent;
+  font-size: 1em;
+  cursor: pointer;
+  vertical-align: middle;
+}
+
 #griglia-info {
   align-items: center;
   display: flex;
@@ -390,4 +398,25 @@ a:hover {
 
 #formato_password > li {
   list-style-position: outside;
+}
+
+#ricarica {
+  background: transparent;
+  cursor: pointer;
+  border-color: white;
+  border-radius: 5px;
+  border-style: solid;
+  padding: 0.4em;
+  border-width: 2px;
+  font-size: 0.8em;
+  margin-left: 40px;
+}
+
+#credito {
+  display: none;
+  margin-left: 40px;
+}
+
+#input-credito {
+  width: 100px;
 }

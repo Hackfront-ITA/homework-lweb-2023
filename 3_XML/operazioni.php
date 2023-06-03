@@ -85,6 +85,65 @@ function op_creazione_ordine($conn_db, $id_utente, $indirizzo) {
   }
 }
 
+function op_estrazione_credito($conn_db, $id_utente) {
+  $query = sprintf(
+    "SELECT credito FROM %s WHERE id = '%s'",
+    TBL_UTENTI, $id_utente
+  );
+
+  try {
+    $result = mysqli_query($conn_db, $query);
+    $row = mysqli_fetch_assoc($result);
+
+    return $row['credito'];
+  } catch (Exception $err) {
+    $cod_err = $err->getSqlState();
+
+    printf("Errore sconosciuto nell'interrogazione al database: %s\n", $cod_err);
+    exit();
+  }
+}
+
+
+function op_aggiorna_credito($conn_db, $id_utente, $credito) {
+  $credito_base = op_estrazione_credito($conn_db, $id_utente);
+  $credito = $credito + $credito_base;
+  $query  = sprintf(
+    "UPDATE %s SET credito = '%f' where id = '%s'",
+    TBL_UTENTI, $credito, $id_utente
+  );
+
+  try {
+    mysqli_query($conn_db, $query);
+    return true;
+  } catch (Exception $err) {
+    $cod_err = $err->getSqlState();
+
+    printf("Errore sconosciuto nell'aggiornamento dei dati: %s.\n", $cod_err);
+    exit();
+  }
+}
+
+
+function op_scala_credito($conn_db, $id_utente, $totale) {
+  $credito_base = op_estrazione_credito($conn_db, $id_utente);
+  $credito_residuo = $credito_base - $totale;
+  $query  = sprintf(
+    "UPDATE %s SET credito = '%f' where id = '%s'",
+    TBL_UTENTI, $credito_residuo, $id_utente
+  );
+
+  try {
+    mysqli_query($conn_db, $query);
+    return true;
+  } catch (Exception $err) {
+    $cod_err = $err->getSqlState();
+
+    printf("Errore sconosciuto nell'aggiornamento dei dati: %s.\n", $cod_err);
+    exit();
+  }
+}
+
 
 function op_num_prenotazioni($conn_db, $corso) {
   $query = sprintf(

@@ -1,9 +1,16 @@
 <?php
 require_once('connessione.php');
+require_once('operazioni.php');
 
 $conn_db = connessione_db();
 
 session_start();
+
+if (isset($_POST['azione']) && $_POST['azione'] === 'ricarica_credito') {
+  $credito = $_POST['credito'];
+  $id_utente = $_SESSION['id_utente'];
+  op_aggiorna_credito($conn_db, $id_utente, $credito);
+}
 
 if (!isset($_POST['azione'])) {
   // Non fa niente
@@ -79,6 +86,7 @@ if (!isset($_POST['azione'])) {
       }
 
       $totale += $quantita * $articolo['prezzo'];
+      $_SESSION['totale_ordine'] = $totale;
 ?>
         <li><?php echo($articolo['nome']); ?>, <?php echo($articolo['prezzo']); ?> &euro;
           <form class="mt-8" action="carrello.php" method="post">
@@ -94,23 +102,42 @@ if (!isset($_POST['azione'])) {
   }
 ?>
       </ul>
-<?php
-    if ($totale === 0) {
-?>
-      <h2 class="centrato prezzo">Carrello vuoto, non &egrave; possibile proseguire con l&rsquo;ordine!</h2>
-<?php
-    }
-?>
+<?php if ($totale === 0 && isset($_SESSION['id_utente'])) { ?>
+      <h3 class="centrato prezzo">Carrello vuoto, non &egrave; possibile proseguire con l&rsquo;ordine!</h3>
+<?php } ?>
 
       <p id="risultato-carrello" class="mt-32">
         <b>Totale</b>:
-        <span class="prezzo"><?php echo($totale); ?>&euro;</span>
+        <span class="prezzo"><?php echo($totale); ?>&euro;</span> <br><br>
+<?php if (isset($_SESSION['id_utente'])) { 
+        $id_utente = $_SESSION['id_utente'];
+        $credito = op_estrazione_credito($conn_db, $id_utente); 
+        $controllo_credito = $credito < $totale; 
+?>
+        <b>Credito</b>:
+        <span class="prezzo"><?php echo($credito); ?>&euro; </span>
+        <button id="ricarica" class="mt-8" name="azione" value="ricarica" onclick="document.getElementById('credito').style.display='block'"><b>Ricarica</b></button>
+
+        <form class="mt-8" id="credito" action="carrello.php" method="POST"> 
+          <input type="number" id="input-credito" name="credito" min="0" step="0.01">
+          <button type="submit" name="azione" value="ricarica_credito" class="button-ricarica ml-8" title="ricarica credito">&#x2705</button>
+        </form>  
+        
+        <br><br>
+<?php } ?>  
       </p>
     </div>
 
     <div class="centrato pt-64">
+<?php if ($controllo_credito) { ?>
+        <h3 class="centrato prezzo pb-32">Credito insufficiente!</h3>
+<?php } ?>
         <a id="indietro-carrello" class="button" href="shop.php">Indietro</a>
-        <a id="indietro-carrello" class="button" href="ordine.php" <?php if($totale === 0) { ?> style="pointer-events: none;" <?php } ?>>Prosegui ordine</a>
+<?php if (isset($_SESSION['id_utente'])) { ?>
+        <a id="indietro-carrello" class="button" href="ordine.php" <?php if($totale === 0 || $controllo_credito) { ?> style="pointer-events: none;" <?php } ?>>Prosegui ordine</a>
+<?php } else { ?>
+        <a id="indietro-carrello" class="button" href="login.php?redirect=carrello.php">Accedi</a>
+<?php } ?>
     </div>
   </div>
 
