@@ -12,13 +12,16 @@ if ($registrazione) {
   $cognome = $_POST['cognome'];
   $username = $_POST['username'];
   $password = $_POST['password'];
+  $credito = $_POST['credito'];
 
   if ($nome === '' || $cognome === '' || $username === '' || $password === '') {
     $errore = 'vuoto';
   } else if (!preg_match('/^[A-Za-z0-9!£$%&()=?^,.;:_|]{8,}$/', $password)) {
     $errore = 'password';
-  } else {
-    $registrato = op_registrazione($conn_db, $nome, $cognome, $username, $password);
+  } else if ($credito < 0) {
+    $errore = 'credito';
+  }else {
+    $registrato = op_registrazione($conn_db, $nome, $cognome, $username, $password, $credito);
   }
 } else {
   $nome = '';
@@ -77,10 +80,14 @@ if ($registrazione) {
         <input type="text" id="username" name="username" value="<?php echo($username); ?>"><br><br>
 
         <label for="password">Password:</label><br>
-        <input type="password" id="password" name="password"><br><br>
+        <input type="password" id="password" name="password" value="<?php if($errore !== 'password') { echo($password); } ?>"><br><br>
+
+        <label for="password">Credito:</label><br>
+        <input type="text" id="credito" name="credito" value="<?php if($errore !== 'credito') { echo($credito); } ?>"><br><br>
 
         <button type="submit" name="azione" value="registrazione" class="button">Registrati!</button>
       </form>
+
       <div class="pt-16 mb-8">
         <a href="login.php">Accedi con un account esistente</a>
 <?php   if ($errore === 'vuoto') { ?>
@@ -93,8 +100,11 @@ if ($registrazione) {
           <li>numeri: 0&ndash;9</li>
           <li>caratteri speciali: &excl;&pound;&dollar;&percnt;&amp;&lpar;&rpar;&equals;&quest;&Hat;&comma;&period;&semi;&colon;&lowbar;&vert;</li>
         </ul>
+<?php   } else if ($errore === 'credito') { ?>
+        <p class="mt-8">Il credito inserito deve essere maggiore o uguale a zero.</p>
 <?php   } ?>
       </div>
+
 <?php } else if ($registrato) { ?>
       <p>Account registrato!</p>
       <a href="login.php">Accedi</a>

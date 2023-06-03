@@ -28,10 +28,10 @@ function op_login($conn_db, $username, $password) {
 }
 
 
-function op_registrazione($conn_db, $nome, $cognome, $username, $password) {
+function op_registrazione($conn_db, $nome, $cognome, $username, $password, $credito) {
   $query = sprintf(
-    "INSERT INTO %s (nome, cognome, username, password) VALUES ('%s', '%s', '%s', MD5('%s'))",
-    TBL_UTENTI, $nome, $cognome, $username, $password
+    "INSERT INTO %s (nome, cognome, username, password, credito) VALUES ('%s', '%s', '%s', MD5('%s'), '%s')",
+    TBL_UTENTI, $nome, $cognome, $username, $password, $credito
   );
 
   try {
