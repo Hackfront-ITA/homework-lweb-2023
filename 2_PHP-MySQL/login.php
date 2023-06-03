@@ -54,7 +54,7 @@ if ($loggato) {
     <h1><a href="index.php">R&amp;C GYM</a></h1>
     <span id="btn-log">
 <?php if (isset($_SESSION['id_utente'])) { ?>
-      <a href="logout.php">LOGOUT</a>
+      <a href="logout.php?redirect=index.php">LOGOUT</a>
 <?php } else { ?>
       <a href="login.php?redirect=index.php">LOGIN</a>
 <?php } ?>
