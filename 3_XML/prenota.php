@@ -36,15 +36,22 @@ if (isset($_POST['azione']) && $_POST['azione'] === 'prenota') {
 
 <body>
   <div id="header">
-    <h1><a href="index.html">R&amp;C GYM</a></h1>
+    <h1><a href="index.php">R&amp;C GYM</a></h1>
+    <span id="btn-log">
+<?php if (isset($_SESSION['id_utente'])) { ?>
+      <a href="logout.php?redirect=prenota.php">LOGOUT</a>
+<?php } else { ?>
+      <a href="login.php?redirect=prenota.php">LOGIN</a>
+<?php } ?>
+    </span>
     <table id="menu">
       <tbody>
         <tr>
-          <td><a href="index.html">Homepage</a></td>
-          <td><a href="corsi.html">Corsi</a></td>
-          <td><a href="servizi.html">Servizi</a></td>
+          <td><a href="index.php">Homepage</a></td>
+          <td><a href="corsi.php">Corsi</a></td>
+          <td><a href="servizi.php">Servizi</a></td>
           <td><a href="shop.php">Shop</a></td>
-          <td><a href="info.html">Informazioni</a></td>
+          <td><a href="info.php">Informazioni</a></td>
         </tr>
       </tbody>
     </table>
@@ -75,7 +82,7 @@ if (isset($_POST['azione']) && $_POST['azione'] === 'prenota') {
 <?php } else { ?>
     <p class="pb-16"><b>La prenotazione &egrave; andata a buon fine.</b></p>
     <div class="mt-32 mb-8">
-      <a class="button" href="corsi.html">Indietro</a>
+      <a class="button" href="corsi.php">Indietro</a>
     </div>
 <?php } ?>
   </div>

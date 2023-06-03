@@ -127,5 +127,5 @@ if (!mysqli_fetch_assoc($result)) {
   }
 }
 
-echo ('Installazione avvenuta con successo');
+echo ("Installazione avvenuta con successo\n");
 ?>

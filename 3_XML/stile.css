@@ -246,13 +246,18 @@ a:hover {
   width: 20%;
 }
 
-#menu > tbody > tr > td > a {
+#menu > tbody > tr > td > a, #btn-log > a {
   border-radius: 6px;
   border: 2px;
   color: white;
   font-size: 1.25em;
   padding: 7px 18px;
   text-decoration: none;
+}
+
+#btn-log {
+  float: right;
+  padding-right: 32px;
 }
 
 #menu > tbody > tr > td > a:hover {
