@@ -37,11 +37,13 @@
   <div id="homepage">
     <h1>BENVENUTO ALLA R&amp;C GYM</h1>
     <h2><em>Unisciti a noi per raggiungere i tuoi obiettivi e trasformare il tuo corpo e la tua mente.</em></h2>
-<?php if (! isset($_SESSION['id_utente'])) { ?>
     <p class="centrato">
+<?php if (isset($_SESSION['id_utente'])) { ?>
+      <a class="button" href="info.php">Vieni a trovarci!</a>
+<?php } else { ?>
       <a class="button" href="login.php?redirect=index.php">Accedi</a>
-    </p>
 <?php } ?>
+    </p>
   </div>
 
   <div id="footer">
