@@ -179,7 +179,7 @@ function op_ins_articoli_ordini($conn_db, $id_ordine, $carrello) {
       exit();
     }
   }
-  
+
   return true;
 }
 

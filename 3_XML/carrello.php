@@ -109,22 +109,22 @@ if (!isset($_POST['azione'])) {
       <p id="risultato-carrello" class="mt-32">
         <b>Totale</b>:
         <span class="prezzo"><?php echo($totale); ?>&euro;</span> <br><br>
-<?php if (isset($_SESSION['id_utente'])) { 
+<?php if (isset($_SESSION['id_utente'])) {
         $id_utente = $_SESSION['id_utente'];
-        $credito = op_estrazione_credito($conn_db, $id_utente); 
-        $controllo_credito = $credito < $totale; 
+        $credito = op_estrazione_credito($conn_db, $id_utente);
+        $controllo_credito = $credito < $totale;
 ?>
         <b>Credito</b>:
         <span class="prezzo"><?php echo($credito); ?>&euro; </span>
         <button id="ricarica" class="mt-8" name="azione" value="ricarica" onclick="document.getElementById('credito').style.display='block'"><b>Ricarica</b></button>
 
-        <form class="mt-8" id="credito" action="carrello.php" method="POST"> 
           <input type="number" id="input-credito" name="credito" min="0" step="0.01">
+        <form class="mt-8" id="credito" action="carrello.php" method="POST">
           <button type="submit" name="azione" value="ricarica_credito" class="button-ricarica ml-8" title="ricarica credito">&#x2705</button>
-        </form>  
-        
+        </form>
+
         <br><br>
-<?php } ?>  
+<?php } ?>
       </p>
     </div>
 
