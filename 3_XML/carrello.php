@@ -129,7 +129,7 @@ if (!isset($_POST['azione'])) {
     </div>
 
     <div class="centrato pt-64">
-<?php if ($controllo_credito) { ?>
+<?php if (isset($controllo_credito) && $controllo_credito) { ?>
         <h3 class="centrato prezzo pb-32">Credito insufficiente!</h3>
 <?php } ?>
         <a id="indietro-carrello" class="button" href="shop.php">Indietro</a>
