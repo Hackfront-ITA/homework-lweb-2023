@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT ordini (ordine*)>
+
+<!ELEMENT ordine (utente, indirizzo, articoli)>
+<!ATTLIST ordine
+    id ID #REQUIRED>
+<!ELEMENT utente (#PCDATA)>
+<!ELEMENT indirizzo (#PCDATA)>
+<!ELEMENT articoli (articolo*)>
+<!ELEMENT articolo>
+<!ATTLIST articolo
+    id ID #REQUIRED
+    quantita CDATA #REQUIRED>
