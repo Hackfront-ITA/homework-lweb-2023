@@ -199,7 +199,7 @@ a:hover {
   cursor: pointer;
 }
 
-.button-ricarica {
+#ricarica-credito {
   border: none;
   background: transparent;
   font-size: 1em;
@@ -412,7 +412,7 @@ a:hover {
   margin-left: 40px;
 }
 
-#credito {
+#form-ricarica {
   display: none;
   margin-left: 40px;
 }

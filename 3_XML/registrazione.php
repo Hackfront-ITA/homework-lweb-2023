@@ -28,6 +28,7 @@ if ($registrazione) {
   $cognome = '';
   $username = '';
   $password = '';
+  $credito = 0.00;
   $registrato = false;
 }
 ?>
@@ -83,7 +84,7 @@ if ($registrazione) {
         <input type="password" id="password" name="password" value="<?php if($errore !== 'password') { echo($password); } ?>"><br><br>
 
         <label for="password">Credito:</label><br>
-        <input type="text" id="credito" name="credito" value="<?php if($errore !== 'credito') { echo($credito); } ?>"><br><br>
+        <input type="number" id="credito" name="credito" min="0.00" step="1.00" value="<?php if($errore !== 'credito') { echo($credito); } ?>"><br><br>
 
         <button type="submit" name="azione" value="registrazione" class="button">Registrati!</button>
       </form>
