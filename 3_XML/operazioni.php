@@ -106,10 +106,8 @@ function op_estrazione_credito($conn_db, $id_utente) {
 
 
 function op_aggiorna_credito($conn_db, $id_utente, $credito) {
-  $credito_base = op_estrazione_credito($conn_db, $id_utente);
-  $credito = $credito + $credito_base;
   $query  = sprintf(
-    "UPDATE %s SET credito = '%f' where id = '%s'",
+    "UPDATE %s SET credito = credito + '%f' where id = '%s'",
     TBL_UTENTI, $credito, $id_utente
   );
 
@@ -126,11 +124,9 @@ function op_aggiorna_credito($conn_db, $id_utente, $credito) {
 
 
 function op_scala_credito($conn_db, $id_utente, $totale) {
-  $credito_base = op_estrazione_credito($conn_db, $id_utente);
-  $credito_residuo = $credito_base - $totale;
   $query  = sprintf(
-    "UPDATE %s SET credito = '%f' where id = '%s'",
-    TBL_UTENTI, $credito_residuo, $id_utente
+    "UPDATE %s SET credito = credito - '%f' where id = '%s'",
+    TBL_UTENTI, $totale, $id_utente
   );
 
   try {
