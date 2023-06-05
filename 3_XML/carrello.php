@@ -116,7 +116,7 @@ if (!isset($_POST['azione'])) {
 ?>
         <b>Credito</b>:
         <span class="prezzo"><?php echo($credito); ?>&euro; </span>
-        <button id="ricarica" class="mt-8" name="azione" value="ricarica" onclick="document.getElementById('credito').style.display='block'"><b>Ricarica</b></button>
+        <button id="ricarica" class="mt-8" name="azione" value="ricarica" onclick="document.getElementById('form-ricarica').style.display='block'"><b>Ricarica</b></button>
 
         <form class="mt-8" id="form-ricarica" action="carrello.php" method="POST">
           <input type="number" id="input-credito" name="credito" min="0.00" step="1.00" value="0.00">
