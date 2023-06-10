@@ -68,21 +68,16 @@ function op_prenotazione($conn_db, $nome, $cognome, $corso) {
 }
 
 
-function op_creazione_ordine($conn_db, $id_utente, $indirizzo) {
-  $query  = sprintf(
-    "INSERT INTO %s (id_utente, indirizzo) VALUES (%d, '%s')",
-    TBL_ORDINI, $id_utente, $indirizzo
-  );
+function op_creazione_ordine($conn_db, $id_utente, $indirizzo, $carrello) {
+  return;
 
-  try {
-    mysqli_query($conn_db, $query);
-    return $conn_db->insert_id;
-  } catch (Exception $err) {
-    $cod_err = $err->getSqlState();
-
-    printf("Errore sconosciuto nell'inserimento dei dati: %s.\n", $cod_err);
-    exit();
+  $doc = new DOMDocument();
+  $xmlString = '';
+  foreach(file('./xml/ordini.xml') as $line) {
+    $xmlString .= trim($line);
   }
+  $doc->loadXML($xmlString);
+  $root = $doc->documentElement;
 }
 
 function op_estrazione_credito($conn_db, $id_utente) {
@@ -158,29 +153,6 @@ function op_num_prenotazioni($conn_db, $corso) {
     printf("Errore sconosciuto nell'interrogazione al database: %s\n", $cod_err);
     exit();
   }
-}
-
-function op_ins_articoli_ordini($conn_db, $id_ordine, $carrello) {
-  foreach ($carrello as $key => $value) {
-    $id_prodotto = $key;
-    $quantita = $value;
-
-    $query = sprintf(
-      "INSERT INTO %s VALUES ('%d', '%d', '%d')",
-      TBL_ARTICOLI_ORDINI, $id_ordine, $id_prodotto, $quantita
-    );
-
-    try {
-      mysqli_query($conn_db, $query);
-    } catch (Exception $err) {
-      $cod_err = $err->getSqlState();
-
-      printf("Errore sconosciuto nell'inserimento dei dati: %s\n", $cod_err);
-      exit();
-    }
-  }
-
-  return true;
 }
 
 ?>

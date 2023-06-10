@@ -27,8 +27,7 @@ if ($creazione) {
     $carrello = $_SESSION['carrello'];
     $id_utente = $_SESSION['id_utente'];
     $totale = $_SESSION['totale_ordine'];
-    $id_ordine = op_creazione_ordine($conn_db, $id_utente, $indirizzo);
-    op_ins_articoli_ordini($conn_db, $id_ordine, $carrello);
+    op_creazione_ordine($conn_db, $id_utente, $indirizzo, $carrello);
     op_scala_credito($conn_db, $id_utente, $totale);
     unset($_SESSION['carrello']);
     $creato = true;
