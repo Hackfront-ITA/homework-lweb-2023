@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:schema
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:ord="http://www.lweb.uni/spazidinomi/ordini/"
+  targetNamespace="http://www.lweb.uni/spazidinomi/ordini/">
 
 <!-- tsk tsk... inutilmente complicato -->
 
 <xsd:element name="ordini">
   <xsd:complexType>
     <xsd:sequence>
-      <xsd:element ref="ordine" minOccurs="0" maxOccurs="unbounded" />
+      <xsd:element ref="ord:ordine" minOccurs="0" maxOccurs="unbounded" />
     </xsd:sequence>
   </xsd:complexType>
 </xsd:element>
@@ -17,7 +20,7 @@
     <xsd:sequence>
       <xsd:element name="utente" type="xsd:positiveInteger" minOccurs="1" maxOccurs="1" />
       <xsd:element name="indirizzo" type="xsd:string" minOccurs="1" maxOccurs="1" />
-      <xsd:element ref="articoli" minOccurs="1" maxOccurs="1" />
+      <xsd:element ref="ord:articoli" minOccurs="1" maxOccurs="1" />
     </xsd:sequence>
   </xsd:complexType>
 </xsd:element>
@@ -25,7 +28,7 @@
 <xsd:element name="articoli">
   <xsd:complexType>
     <xsd:sequence>
-      <xsd:element ref="articolo" minOccurs="1" maxOccurs="unbounded" />
+      <xsd:element ref="ord:articolo" minOccurs="1" maxOccurs="unbounded" />
     </xsd:sequence>
   </xsd:complexType>
 </xsd:element>
