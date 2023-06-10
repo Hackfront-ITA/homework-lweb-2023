@@ -1,10 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <ordini xmlns="http://www.lweb.uni/spazidinomi/ordini/">
   <ordine id="1">
-    <utente>1</utente>
+    <utente>4</utente>
     <indirizzo>Via Isonzo, Latina, Italia</indirizzo>
     <articoli>
-      <articolo id="1" quantita="1" />
+      <articolo id="7" quantita="4" />
+      <articolo id="3" quantita="1" />
+    </articoli>
+  </ordine>
+  <ordine id="2">
+    <utente>3</utente>
+    <indirizzo>Via dei volsci, Latina, Italia</indirizzo>
+    <articoli>
+      <articolo id="9" quantita="8" />
+      <articolo id="2" quantita="6" />
+      <articolo id="5" quantita="3" />
     </articoli>
   </ordine>
 </ordini>
