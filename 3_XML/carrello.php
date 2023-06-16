@@ -41,7 +41,7 @@ if (!isset($_POST['azione'])) {
     <h1><a href="index.php">R&amp;C GYM</a></h1>
     <span id="btn-log">
 <?php if (isset($_SESSION['id_utente'])) { ?>
-      <a href="logout.php?redirect=carrello.php">LOGOUT</a>
+      <a href="profilo.php">PROFILO</a>
 <?php } else { ?>
       <a href="login.php?redirect=carrello.php">LOGIN</a>
 <?php } ?>
