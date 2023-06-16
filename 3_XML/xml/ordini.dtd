@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!ELEMENT ordini (ordine*)>
 
-<!ELEMENT ordine (utente, indirizzo, articoli)>
+<!ELEMENT ordine (data, utente, indirizzo, articoli)>
 <!ATTLIST ordine
     id ID #REQUIRED>
+<!ELEMENT data (#PCDATA)>
 <!ELEMENT utente (#PCDATA)>
 <!ELEMENT indirizzo (#PCDATA)>
 <!ELEMENT articoli (articolo*)>

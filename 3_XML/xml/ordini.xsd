@@ -4,8 +4,6 @@
   xmlns:ord="http://www.lweb.uni/spazidinomi/ordini/"
   targetNamespace="http://www.lweb.uni/spazidinomi/ordini/">
 
-<!-- tsk tsk... inutilmente complicato -->
-
 <xsd:element name="ordini">
   <xsd:complexType>
     <xsd:sequence>
@@ -16,12 +14,13 @@
 
 <xsd:element name="ordine">
   <xsd:complexType>
-    <xsd:attribute name="id" type="xsd:positiveInteger" use="required" />
     <xsd:sequence>
-      <xsd:element name="utente" type="xsd:positiveInteger" minOccurs="1" maxOccurs="1" />
-      <xsd:element name="indirizzo" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element ref="ord:data" minOccurs="1" maxOccurs="1" />
+      <xsd:element ref="ord:utente" minOccurs="1" maxOccurs="1" />
+      <xsd:element ref="ord:indirizzo" minOccurs="1" maxOccurs="1" />
       <xsd:element ref="ord:articoli" minOccurs="1" maxOccurs="1" />
     </xsd:sequence>
+    <xsd:attribute name="id" type="xsd:positiveInteger" use="required" />
   </xsd:complexType>
 </xsd:element>
 
@@ -39,5 +38,9 @@
     <xsd:attribute name="quantita" type="xsd:positiveInteger" use="required" />
   </xsd:complexType>
 </xsd:element>
+
+<xsd:element name="data" type="xsd:date" />
+<xsd:element name="utente" type="xsd:positiveInteger" />
+<xsd:element name="indirizzo" type="xsd:string" />
 
 </xsd:schema>

@@ -1,20 +1,23 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ordini xmlns="http://www.lweb.uni/spazidinomi/ordini/">
   <ordine id="1">
-    <utente>4</utente>
-    <indirizzo>Via Isonzo, Latina, Italia</indirizzo>
+    <data>2023-05-15</data>
+    <utente>3</utente>
+    <indirizzo>Via del Corso 101, Roma, Italia</indirizzo>
     <articoli>
-      <articolo id="7" quantita="4" />
-      <articolo id="3" quantita="1" />
+      <articolo id="3" quantita="2"/>
+      <articolo id="6" quantita="2"/>
+      <articolo id="11" quantita="1"/>
     </articoli>
   </ordine>
   <ordine id="2">
-    <utente>3</utente>
-    <indirizzo>Via dei volsci, Latina, Italia</indirizzo>
+    <data>2023-06-08</data>
+    <utente>1</utente>
+    <indirizzo>Via Doria 12, Latina, Italia</indirizzo>
     <articoli>
-      <articolo id="9" quantita="8" />
-      <articolo id="2" quantita="6" />
-      <articolo id="5" quantita="3" />
+      <articolo id="3" quantita="1"/>
+      <articolo id="5" quantita="1"/>
+      <articolo id="12" quantita="3"/>
     </articoli>
   </ordine>
 </ordini>
