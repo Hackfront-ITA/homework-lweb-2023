@@ -13,6 +13,9 @@ for ($i = 0; $i < $ordini->length; $i++) {
   $id_ordine = $ordine->getAttribute('id');
   echo ("Ordine $id_ordine:\n");
 
+  $data = $ordine->getElementsByTagName('data')[0]->textContent;
+  echo("  Data: $data\n");
+
   $utente = $ordine->getElementsByTagName('utente')[0]->textContent;
   echo("  Utente: $utente\n");
 
