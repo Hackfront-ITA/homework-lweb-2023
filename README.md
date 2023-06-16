@@ -38,4 +38,24 @@
     - header('Location: ...'): per reindirizzamenti nello shop e nel login
     - preg_match(): per controllare la validità dei campi inseriti
 
+### Homework 3 - XML e DOM
+- L'esercizio sviluppato è il proseguimento dell'homework precedente.
+  Sono state aggiunte le funzionalità di:
+  - Gestione ordini tramite XML
+  - Credito utente (con ricarica da pagina del carrello)
+  - Pagina del profilo
+  - Rimozione ordine (da pagina del profilo)
+  - Scomparsa form ricarica utilizzando JavaScript
+
+- E' stata utilizzata l'API DOM per la manipolazione dei dati XML.
+- Le caratteristiche principali di XML che sono state utlizzate sono:
+    - Elementi
+    - Attributi
+    - Schema XSD
+    - DTD
+    - Validazione documento (validatore.php)
+    - getElementByTagName
+    - getAttribute
+    - appendChild, removeChild
+
 :snowman:
