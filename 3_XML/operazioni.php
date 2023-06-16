@@ -68,8 +68,8 @@ function op_prenotazione($conn_db, $nome, $cognome, $corso) {
 }
 
 
-function op_creazione_ordine($conn_db, $id_utente, $indirizzo, $carrello) {
   return;
+function op_creazione_ordine($id_utente, $indirizzo, $carrello) {
 
   $doc = new DOMDocument();
   $xmlString = '';
